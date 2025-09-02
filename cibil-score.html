@@ -1,0 +1,1864 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CIBIL Score Calculation Guide - Loan Rights India</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3a0ca3;
+            --accent-color: #f72585;
+            --success-color: #4cc9f0;
+            --warning-color: #f8961e;
+            --dark-bg: #1a1a2e;
+            --darker-bg: #16213e;
+            --light-text: #f8f9fa;
+            --dark-text: #212529;
+            --card-bg: #ffffff;
+            --body-bg: #f8f9fa;
+            --highlight-color: #ffd166;
+            --law-card-1: #7209b7;
+            --law-card-2: #3a86ff;
+            --law-card-3: #f72585;
+            --footer-bg: #0f3460;
+            --text: #212529;
+            --primary: #4361ee;
+            --primary-dark: #3a0ca3;
+        }
+
+        .dark-mode {
+            --primary-color: #4895ef;
+            --secondary-color: #560bad;
+            --accent-color: #b5179e;
+            --success-color: #4cc9f0;
+            --warning-color: #f8961e;
+            --dark-bg: #0f172a;
+            --darker-bg: #1e293b;
+            --light-text: #f1f5f9;
+            --dark-text: #cbd5e1;
+            --card-bg: #1e293b;
+            --body-bg: #0f172a;
+            --highlight-color: #f59e0b;
+            --law-card-1: #7e22ce;
+            --law-card-2: #2563eb;
+            --law-card-3: #db2777;
+            --footer-bg: #1e3a8a;
+            --text: #cbd5e1;
+            --primary: #4895ef;
+            --primary-dark: #560bad;
+        }
+
+        body {
+            background-color: var(--body-bg);
+            color: var(--text);
+            transition: all 0.4s ease;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        .navbar,
+        .footer {
+            background-color: var(--footer-bg) !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--light-text) !important;
+        }
+
+        .nav-link {
+            color: var(--light-text) !important;
+            font-weight: 500;
+            padding: 0.5rem 1rem !important;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--highlight-color) !important;
+            transform: translateY(-2px);
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            color: var(--text);
+            border: none;
+            box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+            margin-bottom: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 10px !important;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+        }
+
+        .card-header {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+            border-bottom: none;
+            padding: 1rem 1.5rem;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: var(--text);
+            font-weight: 700;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 0.6rem 1.5rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+            color: white;
+        }
+
+        .theme-toggle {
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--light-text);
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            color: var(--highlight-color);
+            transform: rotate(30deg);
+        }
+
+        .feature-box {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--highlight-color);
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(49, 49, 49, 0.8), rgba(60, 60, 61, 0.9)), url('https://images.unsplash.com/photo-1563014959-7aaa83350992?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 7rem 0 5rem;
+            position: relative;
+            overflow: hidden;
+            color: white;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .process-step {
+            position: relative;
+            padding: 30px;
+            background: var(--card-bg);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .process-step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .floating-shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            background: var(--primary-color);
+            top: -150px;
+            right: -150px;
+        }
+
+        .shape-2 {
+            width: 200px;
+            height: 200px;
+            background: var(--accent-color);
+            bottom: -100px;
+            left: -100px;
+        }
+
+        .page-section {
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bg-light-custom {
+            background-color: rgba(248, 249, 250, 0.7) !important;
+        }
+
+        .dark-mode .bg-light-custom {
+            background-color: rgba(30, 41, 59, 0.7) !important;
+        }
+
+        .document-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .document-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .document-list li:last-child {
+            border-bottom: none;
+        }
+
+        .document-list li i {
+            color: var(--primary-color);
+            margin-right: 10px;
+        }
+
+        .checklist-item {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .checklist-item:last-child {
+            border-bottom: none;
+        }
+
+        .checklist-item i {
+            color: var(--success-color);
+            margin-right: 10px;
+        }
+
+        .ai-assistant {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .ai-assistant:hover {
+            transform: scale(1.1);
+            background: var(--secondary-color);
+        }
+
+        .chat-container {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 350px;
+            height: 450px;
+            background: var(--card-bg);
+            border-radius: 15px;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .chat-header {
+            background: var(--primary-color);
+            color: white;
+            padding: 15px;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+        }
+
+        .chat-input {
+            padding: 15px;
+            border-top: 1px solid #eee;
+            display: flex;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            outline: none;
+        }
+
+        .chat-input button {
+            margin-left: 10px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+
+        .message {
+            margin-bottom: 15px;
+            padding: 10px 15px;
+            border-radius: 18px;
+            max-width: 80%;
+        }
+
+        .bot-message {
+            background: #e9e9e9;
+            color: #333;
+            align-self: flex-start;
+            border-bottom-left-radius: 5px;
+        }
+
+        .dark-mode .bot-message {
+            background: #334155;
+            color: #e2e8f0;
+        }
+
+        .user-message {
+            background: var(--primary-color);
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 5px;
+            margin-left: auto;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .comparison-table th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .comparison-table tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        .dark-mode .comparison-table tr:hover {
+            background-color: #2d3748;
+        }
+
+        .info-card {
+            border-left: 4px solid var(--primary-color);
+            padding: 20px;
+            margin-bottom: 20px;
+            background: var(--card-bg);
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .warning-card {
+            border-left: 4px solid var(--warning-color);
+        }
+
+        .success-card {
+            border-left: 4px solid var(--success-color);
+        }
+
+        .factor-box {
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            background: var(--card-bg);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .factor-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .factor-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .factor-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .score-meter {
+            width: 100%;
+            height: 30px;
+            background: #e9ecef;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .meter-fill {
+            height: 100%;
+            border-radius: 15px;
+            transition: width 1.5s ease-in-out;
+        }
+
+        .meter-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .meter-label {
+            font-size: 0.8rem;
+            color: var(--text);
+        }
+
+        .improvement-tip {
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            background: var(--card-bg);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid var(--success-color);
+        }
+
+        .improvement-tip h5 {
+            color: var(--success-color);
+            margin-bottom: 10px;
+        }
+
+        .loan-calculator {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .form-label {
+            font-weight: 500;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+
+        .form-control,
+        .form-select {
+            padding: 12px 15px;
+            border-radius: 10px;
+            border: 1px solid #d1d5db;
+            background-color: var(--card-bg);
+            color: var(--text);
+        }
+
+        .form-control:focus,
+        .form-select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 0.25rem rgba(26, 86, 219, 0.25);
+        }
+
+        .calculator-result {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 20px;
+        }
+
+        /* New styles for enhanced design */
+        .page-navigation {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            opacity: 0.5;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-dot.active {
+            opacity: 1;
+            transform: scale(1.3);
+        }
+
+        .nav-dot:hover {
+            opacity: 0.8;
+            transform: scale(1.2);
+        }
+
+        .section-nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding: 20px 0;
+        }
+
+        .floating-animation {
+            position: absolute;
+            z-index: -1;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(67, 97, 238, 0.7);
+            }
+
+            70% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 10px rgba(67, 97, 238, 0);
+            }
+
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(67, 97, 238, 0);
+            }
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-100px);
+            transition: all 0.8s ease;
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(100px);
+            transition: all 0.8s ease;
+        }
+
+        .slide-in-left.visible,
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .glow-effect {
+            position: relative;
+        }
+
+        .glow-effect::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            z-index: -1;
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color), var(--success-color), var(--primary-color));
+            background-size: 400%;
+            border-radius: 10px;
+            animation: glowing 20s linear infinite;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            filter: blur(5px);
+        }
+
+        .glow-effect:hover::after {
+            opacity: 0.7;
+        }
+
+        @keyframes glowing {
+            0% {
+                background-position: 0 0;
+            }
+
+            50% {
+                background-position: 400% 0;
+            }
+
+            100% {
+                background-position: 0 0;
+            }
+        }
+
+        .animated-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .animated-circle {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.05;
+            animation: move 25s infinite alternate;
+        }
+
+        @keyframes move {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            25% {
+                transform: translate(100px, 150px) scale(1.2);
+            }
+
+            50% {
+                transform: translate(200px, 50px) scale(0.8);
+            }
+
+            75% {
+                transform: translate(50px, 200px) scale(1.1);
+            }
+
+            100% {
+                transform: translate(300px, 100px) scale(0.9);
+            }
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .parallax-element {
+            transition: transform 0.1s ease;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .hero-buttons .btn {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+            .page-navigation {
+                display: none;
+            }
+        }
+
+        /* New styles for navigation buttons */
+        .section-nav {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            background: var(--primary-color);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .section-nav:hover {
+            transform: translateY(-50%) scale(1.05);
+            color: white;
+        }
+
+        .section-nav-prev {
+            left: 20px;
+        }
+
+        .section-nav-next {
+            right: 20px;
+        }
+
+        .section-nav i {
+            font-size: 1.2rem;
+        }
+
+        .section-nav-prev i {
+            margin-right: 8px;
+        }
+
+        .section-nav-next i {
+            margin-left: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-balance-scale me-2"></i>LoanRights<span class="text-warning">India</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-home me-1"></i> Home</a>
+                    </li>
+                    <!-- <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="lawsDropdown" role="button"
+                            data-bs-toggle="dropdown">
+                            <i class="fas fa-gavel me-1"></i> Laws
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-landmark me-2"></i>SARFAESI
+                                    Act</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-file-contract me-2"></i>IBC
+                                    2016</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-scale-balanced me-2"></i>RDDBFI
+                                    Act</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-book me-2"></i>All Laws</a>
+                            </li>
+                        </ul>
+                    </li> -->
+                    <!-- <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="rightsDropdown" role="button"
+                            data-bs-toggle="dropdown">
+                            <i class="fas fa-shield-alt me-1"></i> Rights
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-user-shield me-2"></i>Borrower
+                                    Rights</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-ban me-2"></i>Prohibited
+                                    Practices</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-percentage me-2"></i>Interest Rate
+                                    Rules</a></li>
+                        </ul>
+                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#solutions"><i class="fas fa-lightbulb me-1"></i> Solutions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#resources"><i class="fas fa-book-open me-1"></i> Resources</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#faq"><i class="fas fa-question-circle me-1"></i> FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact"><i class="fas fa-phone-alt me-1"></i> Contact</a>
+                    </li>
+                    <li class="nav-item dropdown ms-lg-3">
+                        <a class="nav-link dropdown-toggle" href="#" id="authDropdown" role="button"
+                            data-bs-toggle="dropdown">
+                            <i class="fas fa-user-circle me-1"></i> Account
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#loginModal"><i
+                                        class="fas fa-sign-in-alt me-2"></i>Login</a>
+                            </li>
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+                                    data-bs-target="#registerModal"><i class="fas fa-user-plus me-2"></i>Register</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item ms-2 d-flex align-items-center">
+                        <span class="theme-toggle" id="themeToggle" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                            title="Toggle Theme">
+                            <i class="fas fa-moon"></i>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Navigation Dots -->
+    <!-- <div class="page-navigation">
+        <div class="nav-dot active" data-section="hero"></div>
+        <div class="nav-dot" data-section="introduction"></div>
+        <div class="nav-dot" data-section="calculation"></div>
+        <div class="nav-dot" data-section="improvement"></div>
+        <div class="nav-dot" data-section="credit-report"></div>
+        <div class="nav-dot" data-section="calculator"></div>
+    </div> -->
+
+    <!-- Navigation Buttons -->
+    <a href="post-process.html" class="section-nav section-nav-prev">
+        <i class="fas fa-arrow-left"></i> Previous
+    </a>
+    <a href="index.html" class="section-nav section-nav-next">
+        Home <i class="fas fa-arrow-right"></i>
+    </a>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="animated-background">
+            <div class="animated-circle"
+                style="width: 200px; height: 200px; background: var(--primary-color); top: 10%; left: 5%; animation-delay: 0s;">
+            </div>
+            <div class="animated-circle"
+                style="width: 300px; height: 300px; background: var(--accent-color); top: 60%; right: 10%; animation-delay: 5s;">
+            </div>
+            <div class="animated-circle"
+                style="width: 150px; height: 150px; background: var(--success-color); bottom: 20%; left: 20%; animation-delay: 10s;">
+            </div>
+        </div>
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+        <div class="container hero-content">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mx-auto text-center" data-aos="fade-up" data-aos-duration="1000">
+                    <h1 class="display-4 fw-bold mb-4 text-white">CIBIL Score Calculation Guide</h1>
+                    <p class="lead mb-4 text-light">Understand how your credit score is calculated, what factors
+                        influence it, and how to improve your CIBIL score for better loan opportunities.</p>
+                    <div class="d-flex flex-wrap gap-3 mb-4 justify-content-center">
+                        <a href="#calculation" class="btn btn-primary btn-lg px-4 pulse-animation">
+                            <i class="fas fa-calculator me-2"></i>Calculation Process
+                        </a>
+                        <a href="#improvement" class="btn btn-outline-light btn-lg px-4">
+                            <i class="fas fa-chart-line me-2"></i>Improvement Tips
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section id="introduction" class="page-section">
+        <div class="container">
+            <div class="row" id="solutions">
+                <div class="col-lg-8 mx-auto" data-aos="fade-up">
+                    <div class="card glow-effect">
+                        <div class="card-body">
+                            <h3 class="card-title">Understanding CIBIL Score</h3>
+                            <p>A CIBIL score is a three-digit numeric summary of your credit history, representing your
+                                creditworthiness. This score ranges from 300 to 900, with higher scores indicating
+                                better credit health.</p>
+                            <p>Lenders use your CIBIL score to evaluate your credit risk and determine your eligibility
+                                for loans and credit cards. A good score can help you secure loans at favorable interest
+                                rates and terms.</p>
+
+                            <div class="score-meter">
+                                <div class="meter-fill"
+                                    style="width: 0%; background: linear-gradient(90deg, #ff6b6b 0%, #feca57 25%, #48dbfb 50%, #1dd1a1 75%, #00d2d3 100%);">
+                                </div>
+                            </div>
+                            <div class="meter-labels">
+                                <span class="meter-label">300 (Poor)</span>
+                                <span class="meter-label">600 (Fair)</span>
+                                <span class="meter-label">750 (Good)</span>
+                                <span class="meter-label">900 (Excellent)</span>
+                            </div>
+
+                            <div class="alert alert-info mt-4">
+                                <i class="fas fa-lightbulb me-2"></i> <strong>Did You Know?</strong> Your CIBIL score is
+                                based on your credit history from the past 36 months (3 years) of your credit behavior.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculation Process Section -->
+    <section id="calculation" class="page-section bg-light-custom">
+        <div class="container" id="resources">
+            <div class="section-title" data-aos="fade-up">
+                <h2>CIBIL Score Calculation Process</h2>
+                <p>How your credit score is calculated based on various factors</p>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="process-step slide-in-left" data-aos="fade-right">
+                        <div class="step-number">1</div>
+                        <h3>Payment History (35%)</h3>
+                        <p>Your payment history is the most significant factor in your CIBIL score calculation. It
+                            reflects how consistently you've made payments on your credit accounts.</p>
+
+                        <div class="factor-box">
+                            <div class="factor-header">
+                                <div class="factor-icon">
+                                    <i class="fas fa-calendar-check"></i>
+                                </div>
+                                <h5>What's Considered:</h5>
+                            </div>
+                            <ul class="checklist-item">
+                                <li><i class="fas fa-check-circle"></i> Timeliness of EMI payments</li>
+                                <li><i class="fas fa-check-circle"></i> Credit card bill payments</li>
+                                <li><i class="fas fa-check-circle"></i> Any missed or delayed payments</li>
+                                <li><i class="fas fa-check-circle"></i> Defaults or settlements</li>
+                                <li><i class="fas fa-check-circle"></i> How recent any negative items are</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="process-step slide-in-right" data-aos="fade-left">
+                        <div class="step-number">2</div>
+                        <h3>Credit Utilization (30%)</h3>
+                        <p>This measures how much of your available credit you're using. It's calculated for each card
+                            and across all cards.</p>
+
+                        <div class="factor-box">
+                            <div class="factor-header">
+                                <div class="factor-icon">
+                                    <i class="fas fa-credit-card"></i>
+                                </div>
+                                <h5>What's Considered:</h5>
+                            </div>
+                            <ul class="checklist-item">
+                                <li><i class="fas fa-check-circle"></i> Ratio of current balance to credit limit</li>
+                                <li><i class="fas fa-check-circle"></i> Individual card utilization</li>
+                                <li><i class="fas fa-check-circle"></i> Overall credit utilization across all cards</li>
+                                <li><i class="fas fa-check-circle"></i> Trends in utilization over time</li>
+                            </ul>
+
+                            <div class="info-card success-card mt-3">
+                                <i class="fas fa-info-circle me-2"></i> <strong>Tip:</strong> Keep your credit
+                                utilization below 30% of your available limit for the best score impact.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="process-step slide-in-left" data-aos="fade-right">
+                        <div class="step-number">3</div>
+                        <h3>Credit Mix & Duration (25%)</h3>
+                        <p>This factor considers the types of credit you have and how long you've had them.</p>
+
+                        <div class="factor-box">
+                            <div class="factor-header">
+                                <div class="factor-icon">
+                                    <i class="fas fa-layer-group"></i>
+                                </div>
+                                <h5>What's Considered:</h5>
+                            </div>
+                            <ul class="checklist-item">
+                                <li><i class="fas fa-check-circle"></i> Types of credit (secured vs unsecured)</li>
+                                <li><i class="fas fa-check-circle"></i> Diversity of credit accounts</li>
+                                <li><i class="fas fa-check-circle"></i> Age of oldest credit account</li>
+                                <li><i class="fas fa-check-circle"></i> Average age of all accounts</li>
+                                <li><i class="fas fa-check-circle"></i> How long since accounts were opened</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="process-step slide-in-right" data-aos="fade-left">
+                        <div class="step-number">4</div>
+                        <h3>Other Factors (10%)</h3>
+                        <p>This includes recent credit behavior and inquiries made by lenders.</p>
+
+                        <div class="factor-box">
+                            <div class="factor-header">
+                                <div class="factor-icon">
+                                    <i class="fas fa-search"></i>
+                                </div>
+                                <h5>What's Considered:</h5>
+                            </div>
+                            <ul class="checklist-item">
+                                <li><i class="fas fa-check-circle"></i> Number of recent credit inquiries</li>
+                                <li><i class="fas fa-check-circle"></i> New credit accounts opened</li>
+                                <li><i class="fas fa-check-circle"></i> Recent credit behavior patterns</li>
+                                <li><i class="fas fa-check-circle"></i> Time since most recent account opening</li>
+                            </ul>
+
+                            <div class="info-card warning-card mt-3">
+                                <i class="fas fa-exclamation-triangle me-2"></i> <strong>Warning:</strong> Too many hard
+                                inquiries in a short period can negatively impact your score as it may indicate credit
+                                hunger.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section Navigation Buttons -->
+            <div class="section-nav-buttons">
+                <a href="#introduction" class="btn btn-outline-primary">
+                    <i class="fas fa-arrow-left me-2"></i> Previous: Introduction
+                </a>
+                <a href="#improvement" class="btn btn-primary">
+                    Next: Score Improvement <i class="fas fa-arrow-right ms-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Score Improvement Section -->
+    <section id="improvement" class="page-section">
+        <div class="container" id="faq">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Improving Your CIBIL Score</h2>
+                <p>Practical steps to boost your credit score over time</p>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="card mb-4 glow-effect">
+                        <div class="card-header">
+                            <h4 class="mb-0"><i class="fas fa-clock me-2"></i>Short-Term Strategies (1-3 months)</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="improvement-tip">
+                                <h5><i class="fas fa-check-circle me-2"></i>Pay Down Credit Card Balances</h5>
+                                <p>Reduce your credit utilization ratio by paying down outstanding balances, especially
+                                    on credit cards.</p>
+                            </div>
+
+                            <div class="improvement-tip">
+                                <h5><i class="fas fa-check-circle me-2"></i>Avoid New Credit Applications</h5>
+                                <p>Minimize hard inquiries by not applying for new credit unless absolutely necessary.
+                                </p>
+                            </div>
+
+                            <div class="improvement-tip">
+                                <h5><i class="fas fa-check-circle me-2"></i>Set Up Payment Reminders</h5>
+                                <p>Ensure you never miss a payment deadline by setting up alerts or auto-pay options.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="card mb-4 glow-effect">
+                        <div class="card-header">
+                            <h4 class="mb-0"><i class="fas fa-calendar-alt me-2"></i>Long-Term Strategies (6+ months)
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="improvement-tip">
+                                <h5><i class="fas fa-check-circle me-2"></i>Maintain a Diverse Credit Mix</h5>
+                                <p>Responsibly manage different types of credit (secured and unsecured) to show you can
+                                    handle various credit products.</p>
+                            </div>
+
+                            <div class="improvement-tip">
+                                <h5><i class="fas fa-check-circle me-2"></i>Keep Old Accounts Open</h5>
+                                <p>Maintain your oldest credit accounts to preserve your credit history length.</p>
+                            </div>
+
+                            <div class="improvement-tip">
+                                <h5><i class="fas fa-check-circle me-2"></i>Review Your Credit Report Regularly</h5>
+                                <p>Check your credit report for errors and dispute any inaccuracies that might be
+                                    hurting your score.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-12" data-aos="fade-up">
+                    <div class="card glow-effect">
+                        <div class="card-header">
+                            <h4 class="mb-0"><i class="fas fa-exclamation-triangle me-2"></i>What to Avoid</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <ul class="document-list">
+                                        <li><i class="fas fa-times text-danger"></i> Missing payment due dates</li>
+                                        <li><i class="fas fa-times text-danger"></i> Utilizing more than 30% of your
+                                            credit limit</li>
+                                        <li><i class="fas fa-times text-danger"></i> Applying for multiple credit
+                                            products simultaneously</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <ul class="document-list">
+                                        <li><i class="fas fa-times text-danger"></i> Closing old credit accounts</li>
+                                        <li><i class="fas fa-times text-danger"></i> Defaulting on loans or settling
+                                            debts</li>
+                                        <li><i class="fas fa-times text-danger"></i> Ignoring errors in your credit
+                                            report</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section Navigation Buttons -->
+            <div class="section-nav-buttons">
+                <a href="#calculation" class="btn btn-outline-primary">
+                    <i class="fas fa-arrow-left me-2"></i> Previous: Calculation
+                </a>
+                <a href="#credit-report" class="btn btn-primary">
+                    Next: Credit Report <i class="fas fa-arrow-right ms-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Credit Report Section -->
+    <section id="credit-report" class="page-section bg-light-custom">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Understanding Your Credit Report</h2>
+                <p>How to read and interpret your CIBIL report</p>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-8 mx-auto" data-aos="fade-up">
+                    <div class="card glow-effect">
+                        <div class="card-body">
+                            <h3 class="card-title">Components of a CIBIL Report</h3>
+                            <p>Your CIBIL report contains several sections that provide a comprehensive view of your
+                                credit history:</p>
+
+                            <div class="table-responsive mt-4">
+                                <table class="comparison-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Section</th>
+                                            <th>Description</th>
+                                            <th>Importance</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Personal Information</td>
+                                            <td>Your name, date of birth, gender, and identification numbers</td>
+                                            <td>Ensures your identity is correctly matched</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Contact Information</td>
+                                            <td>Your addresses and phone numbers</td>
+                                            <td>Helps lenders verify your residence history</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Employment Information</td>
+                                            <td>Your income and employer details</td>
+                                            <td>Provides context for your repayment capacity</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Account Information</td>
+                                            <td>Detailed history of all credit accounts</td>
+                                            <td>Core component that determines your score</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Enquiry Information</td>
+                                            <td>Record of all lenders who have accessed your report</td>
+                                            <td>Shows how often you've applied for credit</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="info-card mt-4">
+                                <i class="fas fa-info-circle me-2"></i> You are entitled to one free credit report per
+                                year from each credit bureau in India. Regularly reviewing your report helps you
+                                identify errors and detect potential identity theft.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section Navigation Buttons -->
+            <div class="section-nav-buttons">
+                <a href="#improvement" class="btn btn-outline-primary">
+                    <i class="fas fa-arrow-left me-2"></i> Previous: Improvement
+                </a>
+                <a href="#calculator" class="btn btn-primary">
+                    Next: Loan Calculator <i class="fas fa-arrow-right ms-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Loan Calculator -->
+    <section id="calculator" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Loan Calculator</h2>
+            <p class="section-subtitle">Calculate your EMI and choose the best loan option</p>
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="loan-calculator">
+                        <h4 class="mb-4">Calculate Your EMI</h4>
+                        <div class="mb-3">
+                            <label class="form-label">Loan Amount (₹)</label>
+                            <input type="range" class="form-range" min="50000" max="5000000" step="50000"
+                                id="loanAmount" value="1000000">
+                            <div class="d-flex justify-content-between">
+                                <span>50,000</span>
+                                <span id="loanAmountValue">10,00,000</span>
+                                <span>50,00,000</span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Interest Rate (%)</label>
+                            <input type="range" class="form-range" min="5" max="20" step="0.1" id="interestRate"
+                                value="8.5">
+                            <div class="d-flex justify-content-between">
+                                <span>5%</span>
+                                <span id="interestRateValue">8.5%</span>
+                                <span>20%</span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Loan Tenure (Years)</label>
+                            <input type="range" class="form-range" min="1" max="30" step="1" id="loanTenure" value="15">
+                            <div class="d-flex justify-content-between">
+                                <span>1</span>
+                                <span id="loanTenureValue">15</span>
+                                <span>30</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary w-100 mt-3" onclick="calculateEMI()">Calculate EMI</button>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="calculator-result">
+                        <h4 class="text-center mb-4">Your Loan EMI Details</h4>
+                        <div class="row text-center">
+                            <div class="col-6 mb-4">
+                                <h5>Monthly EMI</h5>
+                                <h3 id="emiValue">₹9,845</h3>
+                            </div>
+                            <div class="col-6 mb-4">
+                                <h5>Total Interest</h5>
+                                <h3 id="totalInterest">₹7,72,100</h3>
+                            </div>
+                            <div class="col-6">
+                                <h5>Total Payment</h5>
+                                <h3 id="totalPayment">₹17,72,100</h3>
+                            </div>
+                            <div class="col-6">
+                                <h5>Loan Amount</h5>
+                                <h3 id="displayLoanAmount">₹10,00,000</h3>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <button class="btn btn-light w-100">Apply Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section Navigation Buttons -->
+            <div class="section-nav-buttons">
+                <a href="#credit-report" class="btn btn-outline-primary">
+                    <i class="fas fa-arrow-left me-2"></i> Previous: Credit Report
+                </a>
+                <a href="#hero" class="btn btn-primary">
+                    Back to Top <i class="fas fa-arrow-up ms-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    
+<div class="container my-5">
+  <div class="card p-4 text-center">
+    <h3 class="mb-3">🚀 Unlock Premium Features</h3>
+    <p class="mb-4">Upgrade now and enjoy faster performance, ad-free experience, and exclusive tools. Choose your payment option below 👇</p>
+
+    <div class="d-grid gap-3">
+      <button class="btn btn-outline-primary" onclick="unlockFeature('Google Pay')">
+        <img src="gpay.jpeg" width="24" height="24" class="me-2"> Google Pay
+      </button>
+      <button class="btn btn-outline-success" onclick="unlockFeature('PhonePe')">
+        <img src="phonepay.png" width="24" height="24" class="me-2"> PhonePe
+      </button>
+      <button class="btn btn-outline-info" onclick="unlockFeature('Paytm')">
+        <img src="paytm.png" width="24" height="24" class="me-2"> Paytm
+      </button>
+      <button class="btn btn-outline-dark" onclick="unlockFeature('UPI')">
+        <img src="upi.jpeg" width="24" height="24" class="me-2"> UPI
+      </button>
+    </div>
+
+    <div id="msg" class="mt-4 fw-bold text-success"></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="footer py-5" id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h5 class="text-white mb-4">
+                        <i class="fas fa-balance-scale me-2"></i>LoanRights<span class="text-warning">India</span>
+                    </h5>
+                    <p class="text-light">Empowering borrowers with knowledge about their rights and legal protections
+                        in loan recovery processes across India.</p>
+                    <div class="mt-4">
+                        <a href="#https://www.facebook.com/" class="text-light me-3"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="#https://twitter.com/" class="text-light me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#https://www.linkedin.com/in/selladurai-web-developer/" class="text-light me-3"><i
+                                class="fab fa-linkedin-in"></i></a>
+                        <a href="#https://instagram.com/" class="text-light me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#https://www.youtube.com/" class="text-light"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-white mb-4">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#home" class="text-light">Home</a></li>
+                        <li class="mb-2"><a href="#laws" class="text-light">Laws</a></li>
+                        <li class="mb-2"><a href="#rights" class="text-light">Borrower Rights</a></li>
+                        <li class="mb-2"><a href="#resources" class="text-light">Resources</a></li>
+                        <li class="mb-2"><a href="#faq" class="text-light">FAQ</a></li>
+                        <li class="mb-2"><a href="#contact" class="text-light">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-white mb-4">Legal Resources</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#sarfaesi" class="text-light">SARFAESI Act</a></li>
+                        <li class="mb-2"><a href="#ibc" class="text-light">IBC 2016</a></li>
+                        <li class="mb-2"><a href="#rddbfi" class="text-light">RDDBFI Act</a></li>
+                        <li class="mb-2"><a href="#" class="text-light">Consumer Protection Act</a></li>
+                        <li class="mb-2"><a href="#" class="text-light">Interest Rate Rules</a></li>
+                        <li class="mb-2"><a href="#" class="text-light">Latest Judgments</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3">
+                    <h5 class="text-white mb-4">Newsletter</h5>
+                    <p class="text-light">Subscribe to receive updates on borrower rights and legal changes.</p>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" placeholder="Your Email">
+                        <button class="btn btn-primary" type="button">Subscribe</button>
+                    </div>
+                    <p class="small text-light">We respect your privacy. Unsubscribe at any time.</p>
+                </div>
+            </div>
+
+            <hr class="my-4 bg-light">
+
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0 text-light">&copy; 2025 LoanRightsIndia. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="#" class="text-light me-3">Privacy Policy</a>
+                    <a href="#" class="text-light me-3">Terms of Service</a>
+                    <a href="#" class="text-light">Disclaimer</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AI Assistant -->
+    <div class="ai-assistant">
+        <i class="fas fa-robot"></i>
+    </div>
+
+    <div class="chat-container">
+        <div class="chat-header">
+            <span>Loan Assistant</span>
+            <i class="fas fa-times close-chat"></i>
+        </div>
+        <div class="chat-messages">
+            <div class="message bot-message">
+                Hello! I'm here to help with your CIBIL score questions. How can I assist you today?
+            </div>
+        </div>
+        <div class="chat-input">
+            <input type="text" placeholder="Type your message...">
+            <button><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" style="background-color: var(--card-bg);">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title">Login to Your Account</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label for="loginEmail" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="loginEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="loginPassword" required>
+                        </div>
+                        <div class="mb-3 d-flex justify-content-between">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="rememberMe">
+                                <label class="form-check-label" for="rememberMe">Remember me</label>
+                            </div>
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#forgotModal"
+                                data-bs-dismiss="modal">Forgot password?</a>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 py-2 mb-3">Login</button>
+                        <div class="text-center">
+                            <p class="mb-0">Don't have an account? <a href="#" data-bs-toggle="modal"
+                                    data-bs-target="#registerModal" data-bs-dismiss="modal">Register</a></p>
+                        </div>
+                    </form>
+                    <div class="d-flex align-items-center my-4">
+                        <hr class="flex-grow-1">
+                        <span class="mx-3">OR</span>
+                        <hr class="flex-grow-1">
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-outline-secondary">
+                            <i class="fab fa-google me-2"></i>Continue with Google
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" style="background-color: var(--card-bg);">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title">Create Account</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="registerForm">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="firstName" class="form-label">First Name</label>
+                                <input type="text" class="form-control" id="firstName" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="lastName" class="form-label">Last Name</label>
+                                <input type="text" class="form-control" id="lastName" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerEmail" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="registerEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerPhone" class="form-label">Phone Number</label>
+                            <input type="tel" class="form-control" id="registerPhone" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="registerPassword" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="confirmPassword" class="form-label">Confirm Password</label>
+                            <input type="password" class="form-control" id="confirmPassword" required>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="terms" required>
+                            <label class="form-check-label" for="terms">I agree to the <a href="#">Terms of Service</a>
+                                and <a href="#">Privacy Policy</a></label>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 py-2 mb-3">Register</button>
+                        <div class="text-center">
+                            <p class="mb-0">Already have an account? <a href="#" data-bs-toggle="modal"
+                                    data-bs-target="#loginModal" data-bs-dismiss="modal">Login</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+
+                //this is payment purcase
+      function unlockFeature(method) {
+        const msg = document.getElementById("msg");
+            msg.innerHTML = `✅ Payment Successful via <b>${method}</b> 🎉<br> Premium Features Unlocked Instantly!`;
+        }
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const icon = themeToggle.querySelector('i');
+
+        // Check for saved theme preference or use preferred color scheme
+        const savedTheme = localStorage.getItem('theme') ||
+            (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+        if (savedTheme === 'dark') {
+            document.body.classList.add('dark-mode');
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        }
+
+        themeToggle.addEventListener('click', function () {
+            document.body.classList.toggle('dark-mode');
+
+            const currentTheme = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
+            localStorage.setItem('theme', currentTheme);
+
+            if (currentTheme === 'dark') {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+                themeToggle.setAttribute('data-bs-original-title', 'Switch to Light Mode');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+                themeToggle.setAttribute('data-bs-original-title', 'Switch to Dark Mode');
+            }
+
+            // Update tooltip title
+            const tooltipInstance = bootstrap.Tooltip.getInstance(themeToggle);
+            if (tooltipInstance) {
+                tooltipInstance.setContent({ '.tooltip-inner': currentTheme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode' });
+            }
+        });
+
+        // Initialize tooltips
+        const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+
+        // AI Assistant Chat
+        const aiAssistant = document.querySelector('.ai-assistant');
+        const chatContainer = document.querySelector('.chat-container');
+        const closeChat = document.querySelector('.close-chat');
+        const chatInput = document.querySelector('.chat-input input');
+        const chatMessages = document.querySelector('.chat-messages');
+        const sendButton = document.querySelector('.chat-input button');
+
+        aiAssistant.addEventListener('click', function () {
+            chatContainer.style.display = 'flex';
+        });
+
+        closeChat.addEventListener('click', function () {
+            chatContainer.style.display = 'none';
+        });
+
+        function addMessage(text, isUser) {
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('message');
+            messageDiv.classList.add(isUser ? 'user-message' : 'bot-message');
+            messageDiv.textContent = text;
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        sendButton.addEventListener('click', function () {
+            if (chatInput.value.trim() !== '') {
+                addMessage(chatInput.value, true);
+                // Simulate bot response
+                setTimeout(function () {
+                    addMessage("Thank you for your question about CIBIL scores. I can help you understand how scores are calculated, how to improve your score, or how to read your credit report. What specific information would you like?", false);
+                }, 1000);
+                chatInput.value = '';
+            }
+        });
+
+        chatInput.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                sendButton.click();
+            }
+        });
+
+        // Loan calculator functionality
+        document.getElementById('loanAmount').addEventListener('input', function () {
+            document.getElementById('loanAmountValue').textContent = formatCurrency(this.value);
+            document.getElementById('displayLoanAmount').textContent = '₹' + formatNumber(this.value);
+        });
+
+        document.getElementById('interestRate').addEventListener('input', function () {
+            document.getElementById('interestRateValue').textContent = this.value + '%';
+        });
+
+        document.getElementById('loanTenure').addEventListener('input', function () {
+            document.getElementById('loanTenureValue').textContent = this.value + ' years';
+        });
+
+        function calculateEMI() {
+            const loanAmount = document.getElementById('loanAmount').value;
+            const interestRate = document.getElementById('interestRate').value;
+            const loanTenure = document.getElementById('loanTenure').value;
+
+            const monthlyInterest = interestRate / 12 / 100;
+            const numberOfPayments = loanTenure * 12;
+
+            const emi = loanAmount * monthlyInterest * Math.pow(1 + monthlyInterest, numberOfPayments) / (Math.pow(1 + monthlyInterest, numberOfPayments) - 1);
+            const totalPayment = emi * numberOfPayments;
+            const totalInterest = totalPayment - loanAmount;
+
+            document.getElementById('emiValue').textContent = '₹' + formatNumber(emi.toFixed(0));
+            document.getElementById('totalInterest').textContent = '₹' + formatNumber(totalInterest.toFixed(0));
+            document.getElementById('totalPayment').textContent = '₹' + formatNumber(totalPayment.toFixed(0));
+        }
+
+        function formatNumber(num) {
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        function formatCurrency(value) {
+            return '₹' + formatNumber(value);
+        }
+
+        // Initialize calculator
+        document.getElementById('loanAmountValue').textContent = formatCurrency(document.getElementById('loanAmount').value);
+        document.getElementById('interestRateValue').textContent = document.getElementById('interestRate').value + '%';
+        document.getElementById('loanTenureValue').textContent = document.getElementById('loanTenure').value + ' years';
+        document.getElementById('displayLoanAmount').textContent = formatCurrency(document.getElementById('loanAmount').value);
+        calculateEMI();
+
+        // Animate the score meter on page load
+        document.addEventListener('DOMContentLoaded', function () {
+            const meterFill = document.querySelector('.meter-fill');
+            setTimeout(function () {
+                meterFill.style.width = '100%';
+            }, 500);
+        });
+
+        // Scroll animation for elements
+        function checkScroll() {
+            const elements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right');
+            elements.forEach(element => {
+                const position = element.getBoundingClientRect();
+                if (position.top < window.innerHeight - 100) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', checkScroll);
+        window.addEventListener('load', checkScroll);
+
+        // Page navigation dots functionality
+        const sections = document.querySelectorAll('section[id]');
+        const navDots = document.querySelectorAll('.nav-dot');
+
+        function updateActiveDot() {
+            let currentSection = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+
+                if (pageYOffset >= (sectionTop - 200)) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+
+            navDots.forEach(dot => {
+                dot.classList.remove('active');
+                if (dot.getAttribute('data-section') === currentSection) {
+                    dot.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveDot);
+
+        // Click functionality for navigation dots
+        navDots.forEach(dot => {
+            dot.addEventListener('click', function () {
+                const targetSection = this.getAttribute('data-section');
+                const targetElement = document.getElementById(targetSection);
+
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Parallax effect for elements
+        function handleParallax() {
+            const parallaxElements = document.querySelectorAll('.parallax-element');
+            const scrollPosition = window.pageYOffset;
+
+            parallaxElements.forEach(element => {
+                const speed = 0.5;
+                element.style.transform = `translateY(${scrollPosition * speed}px)`;
+            });
+        }
+
+        window.addEventListener('scroll', handleParallax);
+
+        // Initialize page on load
+        updateActiveDot();
+
+        // Script for moving to another page in new tab
+        document.querySelectorAll('.section-nav').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const page = this.getAttribute('href'); // href attribute use pannalam
+                if (page) {
+                    window.open(page, '_blank'); // open next page in new tab
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

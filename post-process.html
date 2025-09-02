@@ -1,0 +1,1618 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post-Loan Process Guide - Loan Rights India</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3a0ca3;
+            --accent-color: #f72585;
+            --success-color: #4cc9f0;
+            --warning-color: #f8961e;
+            --dark-bg: #1a1a2e;
+            --darker-bg: #16213e;
+            --light-text: #f8f9fa;
+            --dark-text: #212529;
+            --card-bg: #ffffff;
+            --body-bg: #f8f9fa;
+            --highlight-color: #ffd166;
+            --law-card-1: #7209b7;
+            --law-card-2: #3a86ff;
+            --law-card-3: #f72585;
+            --footer-bg: #0f3460;
+        }
+
+        .dark-mode {
+            --primary-color: #4895ef;
+            --secondary-color: #560bad;
+            --accent-color: #b5179e;
+            --success-color: #4cc9f0;
+            --warning-color: #f8961e;
+            --dark-bg: #0f172a;
+            --darker-bg: #1e293b;
+            --light-text: #f1f5f9;
+            --dark-text: #e2e8f0;
+            --card-bg: #1e293b;
+            --body-bg: #0f172a;
+            --highlight-color: #f59e0b;
+            --law-card-1: #7e22ce;
+            --law-card-2: #2563eb;
+            --law-card-3: #db2777;
+            --footer-bg: #1e3a8a;
+        }
+
+        body {
+            background-color: var(--body-bg);
+            color: var(--dark-text);
+            transition: all 0.4s ease;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        .navbar,
+        .footer {
+            background-color: var(--footer-bg) !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--light-text) !important;
+        }
+
+        .nav-link {
+            color: var(--light-text) !important;
+            font-weight: 500;
+            padding: 0.5rem 1rem !important;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--highlight-color) !important;
+            transform: translateY(-2px);
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            color: var(--dark-text);
+            border: none;
+            box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+            margin-bottom: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 10px !important;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+        }
+
+        .card-header {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+            border-bottom: none;
+            padding: 1rem 1.5rem;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: var(--dark-text);
+            font-weight: 700;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 0.6rem 1.5rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+            color: white;
+        }
+
+        .theme-toggle {
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--light-text);
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            color: var(--highlight-color);
+            transform: rotate(30deg);
+        }
+
+        .feature-box {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--highlight-color);
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(49, 49, 49, 0.8), rgba(60, 60, 61, 0.9)), url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 7rem 0 5rem;
+            position: relative;
+            overflow: hidden;
+            color: white;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .process-step {
+            position: relative;
+            padding: 30px;
+            background: var(--card-bg);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .process-step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .floating-shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            background: var(--primary-color);
+            top: -150px;
+            right: -150px;
+        }
+
+        .shape-2 {
+            width: 200px;
+            height: 200px;
+            background: var(--accent-color);
+            bottom: -100px;
+            left: -100px;
+        }
+
+        .page-section {
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bg-light-custom {
+            background-color: rgba(248, 249, 250, 0.7) !important;
+        }
+
+        .dark-mode .bg-light-custom {
+            background-color: rgba(30, 41, 59, 0.7) !important;
+        }
+
+        .document-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .document-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .document-list li:last-child {
+            border-bottom: none;
+        }
+
+        .document-list li i {
+            color: var(--primary-color);
+            margin-right: 10px;
+        }
+
+        .checklist-item {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .checklist-item:last-child {
+            border-bottom: none;
+        }
+
+        .checklist-item i {
+            color: var(--success-color);
+            margin-right: 10px;
+        }
+
+        .ai-assistant {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .ai-assistant:hover {
+            transform: scale(1.1);
+            background: var(--secondary-color);
+        }
+
+        .chat-container {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 350px;
+            height: 450px;
+            background: var(--card-bg);
+            border-radius: 15px;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .chat-header {
+            background: var(--primary-color);
+            color: white;
+            padding: 15px;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+        }
+
+        .chat-input {
+            padding: 15px;
+            border-top: 1px solid #eee;
+            display: flex;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            outline: none;
+        }
+
+        .chat-input button {
+            margin-left: 10px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+
+        .message {
+            margin-bottom: 15px;
+            padding: 10px 15px;
+            border-radius: 18px;
+            max-width: 80%;
+        }
+
+        .bot-message {
+            background: #e9e9e9;
+            color: #333;
+            align-self: flex-start;
+            border-bottom-left-radius: 5px;
+        }
+
+        .dark-mode .bot-message {
+            background: #2d3748;
+            color: #e2e8f0;
+        }
+
+        .user-message {
+            background: var(--primary-color);
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 5px;
+            margin-left: auto;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .comparison-table th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .comparison-table tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        .dark-mode .comparison-table tr:hover {
+            background-color: #2d3748;
+        }
+
+        .info-card {
+            border-left: 4px solid var(--primary-color);
+            padding: 20px;
+            margin-bottom: 20px;
+            background: var(--card-bg);
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .warning-card {
+            border-left: 4px solid var(--warning-color);
+        }
+
+        .success-card {
+            border-left: 4px solid var(--success-color);
+        }
+
+        /* New styles for navigation buttons */
+        .section-nav {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            background: var(--primary-color);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .section-nav:hover {
+            transform: translateY(-50%) scale(1.05);
+            color: white;
+        }
+
+        .section-nav-prev {
+            left: 20px;
+        }
+
+        .section-nav-next {
+            right: 20px;
+        }
+
+        .section-nav i {
+            font-size: 1.2rem;
+        }
+
+        .section-nav-prev i {
+            margin-right: 8px;
+        }
+
+        .section-nav-next i {
+            margin-left: 8px;
+        }
+
+        /* Animation enhancements */
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .floating-element {
+            animation: float 5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .pulse-element {
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        /* Enhanced process steps */
+        .enhanced-process-step {
+            position: relative;
+            padding: 30px;
+            background: var(--card-bg);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow: hidden;
+        }
+
+        .enhanced-process-step::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 0;
+            background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+            transition: height 0.5s ease;
+        }
+
+        .enhanced-process-step:hover::before {
+            height: 100%;
+        }
+
+        .enhanced-process-step:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        /* New content styles */
+        .stat-box {
+            text-align: center;
+            padding: 20px;
+            background: var(--card-bg);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .stat-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .stat-text {
+            font-size: 1rem;
+            color: var(--dark-text);
+        }
+
+        .testimonial-card {
+            padding: 25px;
+            background: var(--card-bg);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            font-size: 3rem;
+            color: var(--primary-color);
+            opacity: 0.2;
+            font-family: Georgia, serif;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        /* Additional content section */
+        .additional-content-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .additional-content-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            opacity: 0.1;
+        }
+
+        .content-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 25px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .content-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Enhanced animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-1 {
+            transition-delay: 0.1s;
+        }
+
+        .delay-2 {
+            transition-delay: 0.2s;
+        }
+
+        .delay-3 {
+            transition-delay: 0.3s;
+        }
+
+        .delay-4 {
+            transition-delay: 0.4s;
+        }
+
+        .delay-5 {
+            transition-delay: 0.5s;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-balance-scale me-2"></i>LoanRights<span class="text-warning">India</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-home me-1"></i> Home</a>
+                    </li>
+                    <!-- <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="lawsDropdown" role="button"
+                            data-bs-toggle="dropdown">
+                            <i class="fas fa-gavel me-1"></i> Laws
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-landmark me-2"></i>SARFAESI
+                                    Act</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-file-contract me-2"></i>IBC
+                                    2016</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-scale-balanced me-2"></i>RDDBFI
+                                    Act</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-book me-2"></i>All Laws</a>
+                            </li>
+                        </ul>
+                    </li> -->
+                    <!-- <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="rightsDropdown" role="button"
+                            data-bs-toggle="dropdown">
+                            <i class="fas fa-shield-alt me-1"></i> Rights
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-user-shield me-2"></i>Borrower
+                                    Rights</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-ban me-2"></i>Prohibited
+                                    Practices</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-percentage me-2"></i>Interest Rate
+                                    Rules</a></li>
+                        </ul>
+                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#solutions"><i class="fas fa-lightbulb me-1"></i> Solutions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#resources"><i class="fas fa-book-open me-1"></i> Resources</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#faq"><i class="fas fa-question-circle me-1"></i> FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact"><i class="fas fa-phone-alt me-1"></i> Contact</a>
+                    </li>
+                    <li class="nav-item dropdown ms-lg-3">
+                        <a class="nav-link dropdown-toggle" href="#" id="authDropdown" role="button"
+                            data-bs-toggle="dropdown">
+                            <i class="fas fa-user-circle me-1"></i> Account
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#loginModal"><i
+                                        class="fas fa-sign-in-alt me-2"></i>Login</a>
+                            </li>
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+                                    data-bs-target="#registerModal"><i class="fas fa-user-plus me-2"></i>Register</a>
+                            </li>
+                            <!-- <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-question me-2"></i>Help Center</a>
+                            </li> -->
+                        </ul>
+                    </li>
+                    <li class="nav-item ms-2 d-flex align-items-center">
+                        <span class="theme-toggle" id="themeToggle" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                            title="Toggle Theme">
+                            <i class="fas fa-moon"></i>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Navigation Buttons -->
+    <a href="pre-process.html" class="section-nav section-nav-prev">
+        <i class="fas fa-arrow-left"></i> Previous
+    </a>
+    <a href="cibil-score.html" class="section-nav section-nav-next">
+        Next <i class="fas fa-arrow-right"></i>
+    </a>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="floating-shape shape-1 floating-element"></div>
+        <div class="floating-shape shape-2 floating-element" style="animation-delay: 2s;"></div>
+        <div class="container hero-content">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mx-auto text-center" data-aos="fade-up" data-aos-duration="1000">
+                    <h1 class="display-4 fw-bold mb-4 text-white animate-on-scroll">Post-Loan Process Guide</h1>
+                    <p class="lead mb-4 text-light animate-on-scroll delay-1">Everything you need to know after securing
+                        a loan in India. Manage
+                        your loan effectively, understand your rights, and navigate the repayment process with
+                        confidence.</p>
+                    <div class="d-flex flex-wrap gap-3 mb-4 justify-content-center animate-on-scroll delay-2">
+                        <a href="#step-by-step" class="btn btn-primary btn-lg px-4 pulse-element">
+                            <i class="fas fa-list-ol me-2"></i>Step-by-Step Guide
+                        </a>
+                        <a href="#repayment" class="btn btn-outline-light btn-lg px-4">
+                            <i class="fas fa-credit-card me-2"></i>Repayment Options
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="page-section" id="introduction">
+        <div class="container" id="solutions">
+            <div class="row">
+                <div class="col-lg-8 mx-auto" data-aos="fade-up">
+                    <div class="card enhanced-process-step">
+                        <div class="card-body">
+                            <h3 class="card-title">Managing Your Loan After Disbursement</h3>
+                            <p>Successfully securing a loan is just the beginning. The post-loan process involves
+                                several important steps to ensure you manage your debt effectively, maintain a good
+                                credit history, and eventually close your loan successfully.</p>
+                            <p>This comprehensive guide will walk you through everything you need to know after you've
+                                received your loan in India, helping you navigate repayment, understand your rights, and
+                                handle any challenges that may arise.</p>
+                            <div class="alert alert-info mt-4">
+                                <i class="fas fa-lightbulb me-2"></i> <strong>Pro Tip:</strong> Effective post-loan
+                                management can save you money, protect your credit score, and ensure a smooth financial
+                                journey.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Step-by-Step Guide -->
+    <section id="step-by-step" class="page-section bg-light-custom">
+        <div class="container" id="resources">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Step-by-Step Post-Loan Process</h2>
+                <p>Follow these steps to effectively manage your loan after disbursement</p>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="enhanced-process-step" data-aos="fade-right">
+                        <div class="step-number">1</div>
+                        <h3>Verify Loan Disbursement and Documents</h3>
+                        <p>Once your loan is approved, ensure everything is in order:</p>
+                        <ul class="checklist-item">
+                            <li><i class="fas fa-check-circle"></i> Confirm the loan amount has been disbursed to your
+                                account</li>
+                            <li><i class="fas fa-check-circle"></i> Review your loan agreement carefully</li>
+                            <li><i class="fas fa-check-circle"></i> Verify all terms and conditions match what was
+                                promised</li>
+                            <li><i class="fas fa-check-circle"></i> Keep a copy of all loan documents in a safe place
+                            </li>
+                            <li><i class="fas fa-check-circle"></i> Note important dates (first EMI due date, etc.)</li>
+                        </ul>
+                    </div>
+
+                    <div class="enhanced-process-step" data-aos="fade-left">
+                        <div class="step-number">2</div>
+                        <h3>Set Up Repayment Mechanisms</h3>
+                        <p>Establish reliable methods to ensure timely payments:</p>
+                        <ul class="checklist-item">
+                            <li><i class="fas fa-check-circle"></i> Set up automatic payments through NACH mandate</li>
+                            <li><i class="fas fa-check-circle"></i> Create reminders for EMI due dates</li>
+                            <li><i class="fas fa-check-circle"></i> Ensure sufficient balance in your account before due
+                                dates</li>
+                            <li><i class="fas fa-check-circle"></i> Explore multiple payment channels (online, mobile
+                                banking, etc.)</li>
+                            <li><i class="fas fa-check-circle"></i> Keep proof of all payments made</li>
+                        </ul>
+                    </div>
+
+                    <div class="enhanced-process-step" data-aos="fade-right">
+                        <div class="step-number">3</div>
+                        <h3>Monitor Your Loan Account Regularly</h3>
+                        <p>Stay on top of your loan details and track progress:</p>
+                        <ul class="checklist-item">
+                            <li><i class="fas fa-check-circle"></i> Regularly check your loan account statements</li>
+                            <li><i class="fas fa-check-circle"></i> Verify that payments are being correctly applied
+                            </li>
+                            <li><i class="fas fa-check-circle"></i> Track principal and interest components of each EMI
+                            </li>
+                            <li><i class="fas fa-check-circle"></i> Monitor your outstanding balance reduction</li>
+                            <li><i class="fas fa-check-circle"></i> Report any discrepancies to your lender immediately
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="enhanced-process-step" data-aos="fade-left">
+                        <div class="step-number">4</div>
+                        <h3>Understand Your Prepayment Options</h3>
+                        <p>Know how to reduce your loan burden through提前还款:</p>
+                        <ul class="checklist-item">
+                            <li><i class="fas fa-check-circle"></i> Check your lender's prepayment policies and charges
+                            </li>
+                            <li><i class="fas fa-check-circle"></i> Consider partial prepayments when you have surplus
+                                funds</li>
+                            <li><i class="fas fa-check-circle"></i> Evaluate whether to reduce EMI or loan tenure when
+                                prepaying</li>
+                            <li><i class="fas fa-check-circle"></i> Understand the tax implications of prepayment</li>
+                            <li><i class="fas fa-check-circle"></i> Submit formal requests for prepayment in writing
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="enhanced-process-step" data-aos="fade-right">
+                        <div class="step-number">5</div>
+                        <h3>Manage Financial Challenges</h3>
+                        <p>What to do if you face difficulties in repayment:</p>
+                        <ul class="checklist-item">
+                            <li><i class="fas fa-check-circle"></i> Contact your lender immediately if you anticipate
+                                payment difficulties</li>
+                            <li><i class="fas fa-check-circle"></i> Explore options like loan restructuring or EMI
+                                holidays</li>
+                            <li><i class="fas fa-check-circle"></i> Understand the consequences of missed payments</li>
+                            <li><i class="fas fa-check-circle"></i> Know your rights against harassment by recovery
+                                agents</li>
+                            <li><i class="fas fa-check-circle"></i> Seek credit counseling if you're facing serious
+                                financial stress</li>
+                        </ul>
+                    </div>
+
+                    <div class="enhanced-process-step" data-aos="fade-left">
+                        <div class="step-number">6</div>
+                        <h3>Complete Loan Closure Process</h3>
+                        <p>Final steps when your loan is fully repaid:</p>
+                        <ul class="checklist-item">
+                            <li><i class="fas fa-check-circle"></i> Obtain a No Objection Certificate (NOC) from your
+                                lender</li>
+                            <li><i class="fas fa-check-circle"></i> For secured loans, ensure release of
+                                collateral/charge on assets</li>
+                            <li><i class="fas fa-check-circle"></i> Update your credit report to reflect the closed loan
+                            </li>
+                            <li><i class="fas fa-check-circle"></i> Keep all closure documents safely for future
+                                reference</li>
+                            <li><i class="fas fa-check-circle"></i> Check for any post-closure formalities with local
+                                authorities</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Repayment Strategies Section -->
+    <section id="repayment" class="page-section">
+        <div class="container" id="faq">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Loan Repayment Strategies</h2>
+                <p>Smart approaches to manage your loan repayment effectively</p>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="card mb-4 enhanced-process-step">
+                        <div class="card-header">
+                            <h4 class="mb-0"><i class="fas fa-calculator me-2"></i>EMI Management</h4>
+                        </div>
+                        <div class="card-body">
+                            <h5>Understanding Your EMI:</h5>
+                            <ul class="document-list">
+                                <li><i class="fas fa-check"></i> EMI consists of both principal and interest components
+                                </li>
+                                <li><i class="fas fa-check"></i> Initially, interest portion is higher than principal
+                                </li>
+                                <li><i class="fas fa-check"></i> Ratio changes over time in favor of principal</li>
+                            </ul>
+
+                            <h5 class="mt-4">EMI Payment Options:</h5>
+                            <ul class="document-list">
+                                <li><i class="fas fa-check"></i> Auto-debit from your bank account (NACH mandate)</li>
+                                <li><i class="fas fa-check"></i> Online payments through net banking</li>
+                                <li><i class="fas fa-check"></i> Mobile banking applications</li>
+                                <li><i class="fas fa-check"></i> Cheque payments at bank branches</li>
+                                <li><i class="fas fa-check"></i> Standing instructions for fixed amount transfers</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="card mb-4 enhanced-process-step">
+                        <div class="card-header">
+                            <h4 class="mb-0"><i class="fas fa-chart-line me-2"></i>Prepayment Strategies</h4>
+                        </div>
+                        <div class="card-body">
+                            <h5>Types of Prepayment:</h5>
+                            <ul class="document-list">
+                                <li><i class="fas fa-check"></i> <strong>Partial prepayment:</strong> Paying a portion
+                                    of the outstanding principal</li>
+                                <li><i class="fas fa-check"></i> <strong>Foreclosure:</strong> Paying off the entire
+                                    loan before tenure ends</li>
+                            </ul>
+
+                            <h5 class="mt-4">Prepayment Considerations:</h5>
+                            <ul class="document-list">
+                                <li><i class="fas fa-check"></i> Check for prepayment charges (especially in fixed-rate
+                                    loans)</li>
+                                <li><i class="fas fa-check"></i> Evaluate whether to reduce EMI or loan tenure</li>
+                                <li><i class="fas fa-check"></i> Consider tax implications, especially for home loans
+                                </li>
+                                <li><i class="fas fa-check"></i> Calculate potential interest savings before deciding
+                                </li>
+                            </ul>
+
+                            <div class="info-card success-card mt-4">
+                                <i class="fas fa-info-circle me-2"></i> Most floating rate loans in India now allow
+                                prepayment without charges, but always verify with your lender.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="card mb-4 enhanced-process-step">
+                        <div class="card-header">
+                            <h4 class="mb-0"><i class="fas fa-exclamation-triangle me-2"></i>Managing Financial
+                                Difficulties</h4>
+                        </div>
+                        <div class="card-body">
+                            <h5>If You Can't Pay Your EMI:</h5>
+                            <ul class="document-list">
+                                <li><i class="fas fa-check"></i> <strong>Contact your lender immediately</strong> -
+                                    don't wait for defaults</li>
+                                <li><i class="fas fa-check"></i> Explore loan restructuring options</li>
+                                <li><i class="fas fa-check"></i> Ask for temporary EMI reduction or holiday</li>
+                                <li><i class="fas fa-check"></i> Consider extending loan tenure to reduce EMI burden
+                                </li>
+                            </ul>
+
+                            <h5 class="mt-4">Rights During Recovery Process:</h5>
+                            <ul class="document-list">
+                                <li><i class="fas fa-check"></i> Recovery agents cannot use intimidation or harassment
+                                </li>
+                                <li><i class="fas fa-check"></i> They cannot contact you outside specified hours (7am to
+                                    7pm)</li>
+                                <li><i class="fas fa-check"></i> They cannot misrepresent themselves or the amount owed
+                                </li>
+                                <li><i class="fas fa-check"></i> You have the right to be treated with dignity and
+                                    respect</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="card mb-4 enhanced-process-step">
+                        <div class="card-header">
+                            <h4 class="mb-0"><i class="fas fa-file-contract me-2"></i>Loan Closure Process</h4>
+                        </div>
+                        <div class="card-body">
+                            <h5>Steps for Successful Loan Closure:</h5>
+                            <ul class="document-list">
+                                <li><i class="fas fa-check"></i> Obtain loan settlement statement from lender</li>
+                                <li><i class="fas fa-check"></i> Pay any outstanding dues including interest till
+                                    closure date</li>
+                                <li><i class="fas fa-check"></i> Get No Objection Certificate (NOC) / Loan Closure
+                                    Letter</li>
+                                <li><i class="fas fa-check"></i> For secured loans, obtain release documents for
+                                    collateral</li>
+                                <li><i class="fas fa-check"></i> Update credit bureaus about loan closure</li>
+                            </ul>
+
+                            <div class="info-card warning-card mt-4">
+                                <i class="fas fa-exclamation-triangle me-2"></i> Even after repaying your loan, ensure
+                                you receive proper closure documents, especially for secured loans like home loans where
+                                the charge on property needs to be formally released.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Credit Impact Section -->
+    <section class="page-section bg-light-custom">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Impact on Credit Score</h2>
+                <p>How your loan management affects your credit profile</p>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-8 mx-auto" data-aos="fade-up">
+                    <div class="card enhanced-process-step">
+                        <div class="card-body">
+                            <h3 class="card-title">Loan Repayment and Credit Health</h3>
+                            <p>Your behavior during the loan repayment period significantly impacts your credit score
+                                and future borrowing capacity.</p>
+
+                            <div class="table-responsive mt-4">
+                                <table class="comparison-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Action</th>
+                                            <th>Impact on Credit Score</th>
+                                            <th>Duration of Impact</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Timely EMI payments</td>
+                                            <td>Positive (+)</td>
+                                            <td>Long-term benefit</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Late EMI payments</td>
+                                            <td>Negative (-)</td>
+                                            <td>Up to 3 years</td>
+                                        </tr>
+                                        <tr>
+                                            <td>EMI bounce (insufficient funds)</td>
+                                            <td>Very Negative (--)</td>
+                                            <td>Up to 3 years</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Loan restructuring</td>
+                                            <td>Neutral to Slightly Negative (~)</td>
+                                            <td>1-2 years</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Successful loan closure</td>
+                                            <td>Positive (+)</td>
+                                            <td>Long-term benefit</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="row mt-4">
+                                <div class="col-md-6">
+                                    <h4>Tips to Maintain Good Credit:</h4>
+                                    <ul class="checklist-item">
+                                        <li><i class="fas fa-check"></i> Never miss an EMI payment</li>
+                                        <li><i class="fas fa-check"></i> Set up payment reminders or auto-debit</li>
+                                        <li><i class="fas fa-check"></i> Ensure sufficient balance before due date</li>
+                                        <li><i class="fas fa-check"></i> Monitor your credit report regularly</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <h4>If You Miss a Payment:</h4>
+                                    <ul class="checklist-item">
+                                        <li><i class="fas fa-check"></i> Pay as soon as possible to minimize impact</li>
+                                        <li><i class="fas fa-check"></i> Contact your lender to explain the situation
+                                        </li>
+                                        <li><i class="fas fa-check"></i> Check if you can waive late payment fees</li>
+                                        <li><i class="fas fa-check"></i> Avoid repeated missed payments</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Content Section -->
+    <section class="additional-content-section">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2 class="text-white">Additional Resources</h2>
+                <p class="text-light">More information to help you manage your loan effectively</p>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="content-card">
+                        <div class="stat-number">85%</div>
+                        <p class="stat-text">of borrowers who face difficulties wait too long to contact their lenders
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="content-card">
+                        <div class="stat-number">40%</div>
+                        <p class="stat-text">potential interest savings through strategic prepayment over loan tenure
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="content-card">
+                        <div class="stat-number">72%</div>
+                        <p class="stat-text">of borrowers don't regularly check their credit reports during loan tenure
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-lg-6 mb-4" data-aos="fade-right">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"Following the step-by-step guide helped me save over ₹2 lakh in
+                            interest by making strategic prepayments. The information about my rights gave me confidence
+                            when dealing with the bank."</p>
+                        <div class="testimonial-author">- Rajesh Kumar, Home Loan Customer</div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4" data-aos="fade-left">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"When I faced financial difficulties, I immediately contacted my
+                            lender as suggested here. They offered me a restructuring option that saved me from
+                            defaulting on my loan."</p>
+                        <div class="testimonial-author">- Priya Sharma, Personal Loan Customer</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    
+<div class="container my-5">
+  <div class="card p-4 text-center">
+    <h3 class="mb-3">🚀 Unlock Premium Features</h3>
+    <p class="mb-4">Upgrade now and enjoy faster performance, ad-free experience, and exclusive tools. Choose your payment option below 👇</p>
+
+    <div class="d-grid gap-3">
+      <button class="btn btn-outline-primary" onclick="unlockFeature('Google Pay')">
+        <img src="gpay.jpeg" width="24" height="24" class="me-2"> Google Pay
+      </button>
+      <button class="btn btn-outline-success" onclick="unlockFeature('PhonePe')">
+        <img src="phonepay.png" width="24" height="24" class="me-2"> PhonePe
+      </button>
+      <button class="btn btn-outline-info" onclick="unlockFeature('Paytm')">
+        <img src="paytm.png" width="24" height="24" class="me-2"> Paytm
+      </button>
+      <button class="btn btn-outline-dark" onclick="unlockFeature('UPI')">
+        <img src="upi.jpeg" width="24" height="24" class="me-2"> UPI
+      </button>
+    </div>
+
+    <div id="msg" class="mt-4 fw-bold text-success"></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="footer py-5" id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h5 class="text-white mb-4">
+                        <i class="fas fa-balance-scale me-2"></i>LoanRights<span class="text-warning">India</span>
+                    </h5>
+                    <p class="text-light">Empowering borrowers with knowledge about their rights and legal protections
+                        in loan recovery processes across India.</p>
+                    <div class="mt-4">
+                        <a href="#https://www.facebook.com/" class="text-light me-3"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="#https://twitter.com/" class="text-light me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#https://www.linkedin.com/in/selladurai-web-developer/" class="text-light me-3"><i
+                                class="fab fa-linkedin-in"></i></a>
+                        <a href="#https://instagram.com/" class="text-light me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#https://www.youtube.com/" class="text-light"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-white mb-4">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#home" class="text-light">Home</a></li>
+                        <li class="mb-2"><a href="#laws" class="text-light">Laws</a></li>
+                        <li class="mb-2"><a href="#rights" class="text-light">Borrower Rights</a></li>
+                        <li class="mb-2"><a href="#resources" class="text-light">Resources</a></li>
+                        <li class="mb-2"><a href="#faq" class="text-light">FAQ</a></li>
+                        <li class="mb-2"><a href="#contact" class="text-light">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-white mb-4">Legal Resources</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#sarfaesi" class="text-light">SARFAESI Act</a></li>
+                        <li class="mb-2"><a href="#ibc" class="text-light">IBC 2016</a></li>
+                        <li class="mb-2"><a href="#rddbfi" class="text-light">RDDBFI Act</a></li>
+                        <li class="mb-2"><a href="#" class="text-light">Consumer Protection Act</a></li>
+                        <li class="mb-2"><a href="#" class="text-light">Interest Rate Rules</a></li>
+                        <li class="mb-2"><a href="#" class="text-light">Latest Judgments</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3">
+                    <h5 class="text-white mb-4">Newsletter</h5>
+                    <p class="text-light">Subscribe to receive updates on borrower rights and legal changes.</p>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" placeholder="Your Email">
+                        <button class="btn btn-primary" type="button">Subscribe</button>
+                    </div>
+                    <p class="small text-light">We respect your privacy. Unsubscribe at any time.</p>
+                </div>
+            </div>
+
+            <hr class="my-4 bg-light">
+
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0 text-light">&copy; 2025 LoanRightsIndia. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="#" class="text-light me-3">Privacy Policy</a>
+                    <a href="#" class="text-light me-3">Terms of Service</a>
+                    <a href="#" class="text-light">Disclaimer</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AI Assistant -->
+    <div class="ai-assistant">
+        <i class="fas fa-robot"></i>
+    </div>
+
+    <div class="chat-container">
+        <div class="chat-header">
+            <span>Loan Assistant</span>
+            <i class="fas fa-times close-chat"></i>
+        </div>
+        <div class="chat-messages">
+            <div class="message bot-message">
+                Hello! I'm here to help with your post-loan questions. How can I assist you today?
+            </div>
+        </div>
+        <div class="chat-input">
+            <input type="text" placeholder="Type your message...">
+            <button><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" style="background-color: var(--card-bg);">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title">Login to Your Account</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label for="loginEmail" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="loginEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="loginPassword" required>
+                        </div>
+                        <div class="mb-3 d-flex justify-content-between">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="rememberMe">
+                                <label class="form-check-label" for="rememberMe">Remember me</label>
+                            </div>
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#forgotModal"
+                                data-bs-dismiss="modal">Forgot password?</a>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 py-2 mb-3">Login</button>
+                        <div class="text-center">
+                            <p class="mb-0">Don't have an account? <a href="#" data-bs-toggle="modal"
+                                    data-bs-target="#registerModal" data-bs-dismiss="modal">Register</a></p>
+                        </div>
+                    </form>
+                    <div class="d-flex align-items-center my-4">
+                        <hr class="flex-grow-1">
+                        <span class="mx-3">OR</span>
+                        <hr class="flex-grow-1">
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-outline-secondary">
+                            <i class="fab fa-google me-2"></i>Continue with Google
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" style="background-color: var(--card-bg);">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title">Create Account</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="registerForm">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="firstName" class="form-label">First Name</label>
+                                <input type="text" class="form-control" id="firstName" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="lastName" class="form-label">Last Name</label>
+                                <input type="text" class="form-control" id="lastName" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerEmail" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="registerEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerPhone" class="form-label">Phone Number</label>
+                            <input type="tel" class="form-control" id="registerPhone" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="registerPassword" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="confirmPassword" class="form-label">Confirm Password</label>
+                            <input type="password" class="form-control" id="confirmPassword" required>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="terms" required>
+                            <label class="form-check-label" for="terms">I agree to the <a href="#">Terms of Service</a>
+                                and <a href="#">Privacy Policy</a></label>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 py-2 mb-3">Register</button>
+                        <div class="text-center">
+                            <p class="mb-0">Already have an account? <a href="#" data-bs-toggle="modal"
+                                    data-bs-target="#loginModal" data-bs-dismiss="modal">Login</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+
+                //this is payment purcase
+      function unlockFeature(method) {
+        const msg = document.getElementById("msg");
+            msg.innerHTML = `✅ Payment Successful via <b>${method}</b> 🎉<br> Premium Features Unlocked Instantly!`;
+        }
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const icon = themeToggle.querySelector('i');
+
+        // Check for saved theme preference or use preferred color scheme
+        const savedTheme = localStorage.getItem('theme') ||
+            (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+        if (savedTheme === 'dark') {
+            document.body.classList.add('dark-mode');
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        }
+
+        themeToggle.addEventListener('click', function () {
+            document.body.classList.toggle('dark-mode');
+
+            const currentTheme = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
+            localStorage.setItem('theme', currentTheme);
+
+            if (currentTheme === 'dark') {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+                themeToggle.setAttribute('data-bs-original-title', 'Switch to Light Mode');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+                themeToggle.setAttribute('data-bs-original-title', 'Switch to Dark Mode');
+            }
+
+            // Update tooltip title
+            const tooltipInstance = bootstrap.Tooltip.getInstance(themeToggle);
+            if (tooltipInstance) {
+                tooltipInstance.setContent({ '.tooltip-inner': currentTheme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode' });
+            }
+        });
+
+        // Initialize tooltips
+        const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+
+        // AI Assistant Chat
+        const aiAssistant = document.querySelector('.ai-assistant');
+        const chatContainer = document.querySelector('.chat-container');
+        const closeChat = document.querySelector('.close-chat');
+        const chatInput = document.querySelector('.chat-input input');
+        const chatMessages = document.querySelector('.chat-messages');
+        const sendButton = document.querySelector('.chat-input button');
+
+        aiAssistant.addEventListener('click', function () {
+            chatContainer.style.display = 'flex';
+        });
+
+        closeChat.addEventListener('click', function () {
+            chatContainer.style.display = 'none';
+        });
+
+        function addMessage(text, isUser) {
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('message');
+            messageDiv.classList.add(isUser ? 'user-message' : 'bot-message');
+            messageDiv.textContent = text;
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        sendButton.addEventListener('click', function () {
+            if (chatInput.value.trim() !== '') {
+                addMessage(chatInput.value, true);
+                // Simulate bot response
+                setTimeout(function () {
+                    addMessage("Thank you for your question about post-loan management. I can help you understand repayment strategies, prepayment options, or how to handle financial difficulties. What specific information would you like?", false);
+                }, 1000);
+                chatInput.value = '';
+            }
+        });
+
+        chatInput.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                sendButton.click();
+            }
+        });
+
+        // Scroll animation for elements
+        function checkScroll() {
+            const elements = document.querySelectorAll('.fade-in, .animate-on-scroll');
+            elements.forEach(element => {
+                const position = element.getBoundingClientRect();
+                if (position.top < window.innerHeight - 100) {
+                    element.classList.add('visible');
+                    element.classList.add('animated');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', checkScroll);
+        window.addEventListener('load', checkScroll);
+
+        // Section navigation
+        const sections = document.querySelectorAll('.page-section, .hero-section, .additional-content-section');
+        const navLinks = document.querySelectorAll('.section-nav');
+
+        function updateNavigation() {
+            let currentSection = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+
+                if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(currentSection)) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateNavigation);
+
+        // Script for moving to another page in new tab
+        document.querySelectorAll('.section-nav').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const page = this.getAttribute('href'); // href attribute use pannalam
+                if (page) {
+                    window.open(page, '_blank'); // open next page in new tab
+                }
+            });
+        });
+
+    </script>
+</body>
+
+</html>
