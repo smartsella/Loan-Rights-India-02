@@ -229,7 +229,7 @@
         }
 
         .hero-section {
-            background: linear-gradient(rgba(49, 49, 49, 0.8), rgba(60, 60, 61, 0.9)), url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+            background: linear-gradient(rgba(33, 33, 33, 0.8), rgba(23, 23, 23, 0.9)), url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
             padding: 7rem 0 5rem;
@@ -1840,31 +1840,75 @@
             </div>
         </div>
     </section>
-    
-<div class="container my-5">
-  <div class="card p-4 text-center">
-    <h3 class="mb-3">🚀 Unlock Premium Features</h3>
-    <p class="mb-4">Upgrade now and enjoy faster performance, ad-free experience, and exclusive tools. Choose your payment option below 👇</p>
 
-    <div class="d-grid gap-3">
-      <button class="btn btn-outline-primary" onclick="unlockFeature('Google Pay')">
-        <img src="gpay.jpeg" width="24" height="24" class="me-2"> Google Pay
-      </button>
-      <button class="btn btn-outline-success" onclick="unlockFeature('PhonePe')">
-        <img src="phonepay.png" width="24" height="24" class="me-2"> PhonePe
-      </button>
-      <button class="btn btn-outline-info" onclick="unlockFeature('Paytm')">
-        <img src="paytm.png" width="24" height="24" class="me-2"> Paytm
-      </button>
-      <button class="btn btn-outline-dark" onclick="unlockFeature('UPI')">
-        <img src="upi.jpeg" width="24" height="24" class="me-2"> UPI
-      </button>
+<!-- Premium Payment Options -->
+<div class="container my-5">
+  <div class="text-center mb-5">
+    <h2 class="fw-bold">🚀 Unlock Premium Features</h2>
+    <p class="text-white">Upgrade now for faster performance, ad-free browsing, and exclusive tools.  
+      Choose your payment method 👇</p>
+  </div>
+
+  <div class="row g-4">
+    <!-- Google Pay -->
+    <div class="col-md-6">
+      <div class="card border-0 shadow-lg rounded-4 h-100" 
+           style="background: linear-gradient(135deg, #4285F4, #34A853); color: white; cursor:pointer;" 
+           onclick="unlockFeature('Google Pay')">
+        <div class="card-body text-center p-4">
+          <img src="gpay.jpeg" width="50" height="50" class="mb-3">
+          <h4>Google Pay</h4>
+          <p class="small">Pay securely using your Google account. Instant & trusted transactions.</p>
+          <button class="btn btn-light mt-2">Pay with GPay</button>
+        </div>
+      </div>
     </div>
 
-    <div id="msg" class="mt-4 fw-bold text-success"></div>
-  </div>
-</div>
+    <!-- PhonePe -->
+    <div class="col-md-6">
+      <div class="card border-0 shadow-lg rounded-4 h-100" 
+           style="background: linear-gradient(135deg, #5f259f, #6a1b9a); color: white; cursor:pointer;" 
+           onclick="unlockFeature('PhonePe')">
+        <div class="card-body text-center p-4">
+          <img src="phonepay.png" width="50" height="50" class="mb-3">
+          <h4>PhonePe</h4>
+          <p class="small">Quick UPI payments with cashback offers and wallet support.</p>
+          <button class="btn btn-light mt-2">Pay with PhonePe</button>
+        </div>
+      </div>
+    </div>
 
+    <!-- Paytm -->
+    <div class="col-md-6">
+      <div class="card border-0 shadow-lg rounded-4 h-100" 
+           style="background: linear-gradient(135deg, #02a9f7, #0d47a1); color: white; cursor:pointer;" 
+           onclick="unlockFeature('Paytm')">
+        <div class="card-body text-center p-4">
+          <img src="paytm.png" width="50" height="50" class="mb-3">
+          <h4>Paytm</h4>
+          <p class="small">Recharge, wallet, and UPI support all in one app.</p>
+          <button class="btn btn-light mt-2">Pay with Paytm</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- UPI -->
+    <div class="col-md-6">
+      <div class="card border-0 shadow-lg rounded-4 h-100" 
+           style="background: linear-gradient(135deg, #000000, #434343); color: white; cursor:pointer;" 
+           onclick="unlockFeature('UPI')">
+        <div class="card-body text-center p-4">
+          <img src="upi.jpeg" width="50" height="50" class="mb-3">
+          <h4>UPI</h4>
+          <p class="small">Direct bank-to-bank payments. Fast and reliable.</p>
+          <button class="btn btn-light mt-2">Pay with UPI</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="msg" class="mt-4 fw-bold text-success text-center"></div>
+</div>
     <!-- Footer -->
     <footer class="footer py-5">
         <div class="container">
