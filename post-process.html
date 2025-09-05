@@ -317,45 +317,66 @@
         margin-right: 10px;
       }
 
-      .ai-assistant {
+
+              .ai-assistant {
         position: fixed;
         bottom: 30px;
         right: 30px;
-        width: 60px;
-        height: 60px;
-        background: var(--primary-color);
+        width: 65px;
+        height: 65px;
+        background: linear-gradient(
+          135deg,
+          var(--primary-color) 0%,
+          var(--secondary-color) 100%
+        );
         color: white;
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 24px;
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        font-size: 26px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
         cursor: pointer;
         z-index: 1000;
-        transition: all 0.3s ease;
+        transition: all 0.4s ease;
+        animation: pulse 2s infinite;
+      }
+
+     
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(67, 97, 238, 0.7);
+        }
+
+        70% {
+          box-shadow: 0 0 0 15px rgba(67, 97, 238, 0);
+        }
+
+        100% {
+          box-shadow: 0 0 0 0 rgba(67, 97, 238, 0);
+        }
       }
 
       .ai-assistant:hover {
-        transform: scale(1.1);
-        background: var(--secondary-color);
+        transform: scale(1.15) rotate(15deg);
       }
 
       .chat-container {
         position: fixed;
-        bottom: 100px;
+        bottom: 110px;
         right: 30px;
-        width: 350px;
-        height: 450px;
+        width: 380px;
+        height: 500px;
         background: var(--card-bg);
-        border-radius: 15px;
-        box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
+        border-radius: 20px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
         z-index: 1000;
         display: none;
         flex-direction: column;
         overflow: hidden;
+        transform-origin: bottom right;
+        animation: scaleIn 0.3s ease;
       }
-
       .chat-header {
         background: var(--primary-color);
         color: white;
@@ -1444,6 +1465,112 @@
         </div>
       </div>
     </section>
+    <!-- card box -->
+    <div id="post-loan" class="container py-5">
+  <div class="text-center mb-4">
+    <h2 class="fw-bold mb-1">Post-Loan Process</h2>
+    <p class="text-muted mb-0">Track what happens after your loan gets approved</p>
+  </div>
+
+  <div class="row g-4">
+    <!-- Card 1: Disbursement -->
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card h-100 shadow-sm border-0">
+        <img src="https://img.icons8.com/fluency/96/money-transfer.png" class="card-img-top mx-auto d-block mt-3" style="width:96px; height:96px; object-fit:contain;" alt="Loan disbursement">
+        <div class="card-body text-center">
+          <h5 class="card-title mb-1">1) Disbursement</h5>
+          <p class="text-muted small mb-2">Funds sent to your bank / vendor.</p>
+          <ul class="small mb-0 list-unstyled text-start">
+            <li>• Amount & charges finalised</li>
+            <li>• UTR reference shared via SMS/Email</li>
+            <li>• Turnaround: typically 1–2 working days</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2: Welcome Kit & Schedule -->
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card h-100 shadow-sm border-0">
+        <img src="https://img.icons8.com/fluency/96/open-envelope.png" class="card-img-top mx-auto d-block mt-3" style="width:96px; height:96px; object-fit:contain;" alt="Welcome kit and repayment schedule">
+        <div class="card-body text-center">
+          <h5 class="card-title mb-1">2) Welcome Kit & Schedule</h5>
+          <p class="text-muted small mb-2">All docs delivered to your inbox.</p>
+          <ul class="small mb-0 list-unstyled text-start">
+            <li>• Sanction letter & amortization table</li>
+            <li>• EMI dates & interest breakup</li>
+            <li>• Loan A/C number for future queries</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3: Repayment Setup -->
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card h-100 shadow-sm border-0">
+        <img src="https://img.icons8.com/fluency/96/bank-cards.png" class="card-img-top mx-auto d-block mt-3" style="width:96px; height:96px; object-fit:contain;" alt="Repayment setup">
+        <div class="card-body text-center">
+          <h5 class="card-title mb-1">3) Repayment Setup</h5>
+          <p class="text-muted small mb-2">Enable auto-debit to avoid bounce.</p>
+          <ul class="small mb-0 list-unstyled text-start">
+            <li>• eNACH / UPI AutoPay / Debit ECS</li>
+            <li>• Update primary bank account</li>
+            <li>• Bounce charges apply if failed</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4: First EMI Reminder -->
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card h-100 shadow-sm border-0">
+        <img src="https://img.icons8.com/fluency/96/alarm.png" class="card-img-top mx-auto d-block mt-3" style="width:96px; height:96px; object-fit:contain;" alt="EMI reminders">
+        <div class="card-body text-center">
+          <h5 class="card-title mb-1">4) First EMI Reminder</h5>
+          <p class="text-muted small mb-2">Heads-up before debit date.</p>
+          <ul class="small mb-0 list-unstyled text-start">
+            <li>• SMS/Email app notifications</li>
+            <li>• Maintain balance 24 hrs prior</li>
+            <li>• View dues in dashboard</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 5: Part-Payment / Foreclosure -->
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card h-100 shadow-sm border-0">
+        <img src="https://img.icons8.com/fluency/96/money-bag.png" class="card-img-top mx-auto d-block mt-3" style="width:96px; height:96px; object-fit:contain;" alt="Part payment and foreclosure">
+        <div class="card-body text-center">
+          <h5 class="card-title mb-1">5) Part-Payment / Foreclosure</h5>
+          <p class="text-muted small mb-2">Close faster, save interest.</p>
+          <ul class="small mb-0 list-unstyled text-start">
+            <li>• Raise request from portal</li>
+            <li>• Get pre-closure statement</li>
+            <li>• Charges as per loan T&Cs</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 6: Support & Grievance -->
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card h-100 shadow-sm border-0">
+        <img src="https://img.icons8.com/fluency/96/customer-support.png" class="card-img-top mx-auto d-block mt-3" style="width:96px; height:96px; object-fit:contain;" alt="Customer support and grievance redressal">
+        <div class="card-body text-center">
+          <h5 class="card-title mb-1">6) Support & Grievance</h5>
+          <p class="text-muted small mb-2">We’ve got your back.</p>
+          <ul class="small mb-0 list-unstyled text-start">
+            <li>• Ticket system with SLA</li>
+            <li>• Branch visit & helpline</li>
+            <li>• RBI/Bank Ombudsman escalation path</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
     <!-- Additional Content Section -->
     <section class="additional-content-section">

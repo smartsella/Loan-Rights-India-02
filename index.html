@@ -368,45 +368,65 @@
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
 
-        .ai-assistant {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            background: var(--primary-color);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-            cursor: pointer;
-            z-index: 1000;
-            transition: all 0.3s ease;
+              .ai-assistant {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 65px;
+        height: 65px;
+        background: linear-gradient(
+          135deg,
+          var(--primary-color) 0%,
+          var(--secondary-color) 100%
+        );
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 26px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+        cursor: pointer;
+        z-index: 1000;
+        transition: all 0.4s ease;
+        animation: pulse 2s infinite;
+      }
+
+     
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(67, 97, 238, 0.7);
         }
 
-        .ai-assistant:hover {
-            transform: scale(1.1);
-            background: var(--secondary-color);
+        70% {
+          box-shadow: 0 0 0 15px rgba(67, 97, 238, 0);
         }
 
-        .chat-container {
-            position: fixed;
-            bottom: 100px;
-            right: 30px;
-            width: 350px;
-            height: 450px;
-            background: var(--card-bg);
-            border-radius: 15px;
-            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
-            z-index: 1000;
-            display: none;
-            flex-direction: column;
-            overflow: hidden;
+        100% {
+          box-shadow: 0 0 0 0 rgba(67, 97, 238, 0);
         }
+      }
 
+      .ai-assistant:hover {
+        transform: scale(1.15) rotate(15deg);
+      }
+
+      .chat-container {
+        position: fixed;
+        bottom: 110px;
+        right: 30px;
+        width: 380px;
+        height: 500px;
+        background: var(--card-bg);
+        border-radius: 20px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+        z-index: 1000;
+        display: none;
+        flex-direction: column;
+        overflow: hidden;
+        transform-origin: bottom right;
+        animation: scaleIn 0.3s ease;
+      }
         .chat-header {
             background: var(--primary-color);
             color: white;
@@ -498,9 +518,13 @@
             overflow: hidden;
         }
 
-        .bg-light-custom {
-            background-color: rgba(248, 249, 250, 0.7) !important;
-        }
+      .bg-light-custom {
+        background-color: rgba(248, 249, 250, 0.7) !important;
+      }
+
+      .dark-mode .bg-light-custom {
+        background-color: rgba(30, 41, 59, 0.7) !important;
+      }
 
         .loan-type-card {
             border: none;
@@ -968,6 +992,46 @@
         .section-nav-next i {
             margin-left: 8px;
         }
+
+         /* Additional content section */
+      .additional-content-section {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color) 0%,
+          var(--secondary-color) 100%
+        );
+        color: white;
+        padding: 80px 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .additional-content-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url("https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80")
+          center/cover no-repeat;
+        opacity: 0.1;
+      }
+
+      .content-card {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 10px;
+        padding: 25px;
+        margin-bottom: 25px;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .content-card:hover {
+        transform: translateY(-5px);
+        background: rgba(255, 255, 255, 0.15);
+      }
     </style>
 </head>
 
@@ -1659,7 +1723,7 @@
     </section>
 
     <!-- Help Resources Section -->
-    <section id="resources" class="page-section bg-light-custom">
+    <section id="resources" class="page-section bg-light-custom additional-content-section">
         <div class="container">
             <div class="section-title" data-aos="fade-up">
                 <h2>Where to Seek Help</h2>
@@ -1672,8 +1736,8 @@
                         <h5><i class="fas fa-university me-2"></i>RBI Banking Ombudsman</h5>
                         <p>Addresses complaints relating to deficiencies in banking services including loans.</p>
                         <p><strong>Helpline:</strong> 14448 (toll-free)</p>
-                        <p><strong>Website:</strong> <a href="#">rbi.org.in</a></p>
-                        <a href="#" class="btn btn-sm btn-primary glow-on-hover">Visit Website</a>
+                        <p><strong>Website:</strong> <a href="https://rbi.org.in/Scripts/Complaints.aspx">rbi.org.in</a></p>
+                        <a href="https://rbi.org.in/Scripts/Complaints.aspx" class="btn btn-sm btn-primary glow-on-hover">Visit Website</a>
                     </div>
                 </div>
 
@@ -1681,9 +1745,9 @@
                     <div class="help-box hover-3d">
                         <h5><i class="fas fa-gavel me-2"></i>Debt Recovery Tribunals</h5>
                         <p>Special tribunals for recovery cases above ₹20 lakh under RDDBFI Act.</p>
-                        <p><strong>Website:</strong> drt.gov.in</p>
+                        <p><strong>Website:</strong> <a href="https:drt.gov.in/">drt.gov.in</a></p>
                         <p><strong>Jurisdiction:</strong> 39 DRTs across India</p>
-                        <a href="#" class="btn btn-sm btn-primary glow-on-hover">Find Nearest DRT</a>
+                        <a href="https://drt.gov.in/" class="btn btn-sm btn-primary glow-on-hover">Find Nearest DRT</a>
                     </div>
                 </div>
 
@@ -1693,7 +1757,7 @@
                         <p>For complaints regarding unfair practices and deficiency in services related to loans.</p>
                         <p><strong>Jurisdiction:</strong> Based on claim amount</p>
                         <p><strong>Time Limit:</strong> 2 years from cause of action</p>
-                        <a href="#" class="btn btn-sm btn-primary glow-on-hover">File Complaint</a>
+                        <a href="https://ncdrc.nic.in/" class="btn btn-sm btn-primary glow-on-hover">File Complaint</a>
                     </div>
                 </div>
 
@@ -1703,11 +1767,121 @@
                         <p>Free legal assistance for those who cannot afford lawyers for loan-related issues.</p>
                         <p><strong>Contact:</strong> District Legal Services Authority</p>
                         <p><strong>Eligibility:</strong> Income-based criteria</p>
-                        <a href="#" class="btn btn-sm btn-primary glow-on-hover">Find Legal Aid</a>
+                        <a href="https://nalsa.gov.in/legal-aid/" class="btn btn-sm btn-primary glow-on-hover">Find Legal Aid</a>
                     </div>
                 </div>
             </div>
         </div>
+    </section>
+
+
+        <!-- card box -->
+         <section>
+<div id="loan-process" class="container py-5">
+  <div class="text-center mb-4">
+    <h2 class="fw-bold mb-1">Loan Process Steps</h2>
+    <p class="fw-bold mb-0">Step-by-step journey to get your loan approved</p>
+  </div>
+
+  <div class="row g-4">
+    <!-- Card 1: Application -->
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card h-100 shadow-sm border-0">
+        <img src="https://img.icons8.com/fluency/96/application.png" class="card-img-top mx-auto d-block mt-3" style="width:96px; height:96px; object-fit:contain;" alt="Application">
+        <div class="card-body text-center">
+          <h5 class="card-title mb-1">1) Loan Application</h5>
+          <p class="text-muted small mb-2">Start your loan journey.</p>
+          <ul class="small mb-0 list-unstyled text-start">
+            <li>• Submit personal details</li>
+            <li>• Choose loan type</li>
+            <li>• Fill application form</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2: Document Submission -->
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card h-100 shadow-sm border-0">
+        <img src="https://img.icons8.com/fluency/96/documents.png" class="card-img-top mx-auto d-block mt-3" style="width:96px; height:96px; object-fit:contain;" alt="Documents">
+        <div class="card-body text-center">
+          <h5 class="card-title mb-1">2) Document Submission</h5>
+          <p class="text-muted small mb-2">Provide required proofs.</p>
+          <ul class="small mb-0 list-unstyled text-start">
+            <li>• ID & income proof</li>
+            <li>• Address verification</li>
+            <li>• Employment documents</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3: Verification -->
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card h-100 shadow-sm border-0">
+        <img src="https://img.icons8.com/fluency/96/inspection.png" class="card-img-top mx-auto d-block mt-3" style="width:96px; height:96px; object-fit:contain;" alt="Verification">
+        <div class="card-body text-center">
+          <h5 class="card-title mb-1">3) Verification</h5>
+          <p class="text-muted small mb-2">Bank checks your details.</p>
+          <ul class="small mb-0 list-unstyled text-start">
+            <li>• Background check</li>
+            <li>• Income verification</li>
+            <li>• Credit score review</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4: Approval -->
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card h-100 shadow-sm border-0">
+        <img src="https://img.icons8.com/fluency/96/approval.png" class="card-img-top mx-auto d-block mt-3" style="width:96px; height:96px; object-fit:contain;" alt="Approval">
+        <div class="card-body text-center">
+          <h5 class="card-title mb-1">4) Loan Approval</h5>
+          <p class="text-muted small mb-2">Bank decision process.</p>
+          <ul class="small mb-0 list-unstyled text-start">
+            <li>• Eligibility checked</li>
+            <li>• Loan amount confirmed</li>
+            <li>• Terms finalized</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 5: Agreement Signing -->
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card h-100 shadow-sm border-0">
+        <img src="https://img.icons8.com/fluency/96/contract.png" class="card-img-top mx-auto d-block mt-3" style="width:96px; height:96px; object-fit:contain;" alt="Agreement Signing">
+        <div class="card-body text-center">
+          <h5 class="card-title mb-1">5) Agreement Signing</h5>
+          <p class="text-muted small mb-2">Confirm loan terms.</p>
+          <ul class="small mb-0 list-unstyled text-start">
+            <li>• Review loan agreement</li>
+            <li>• Sign legal documents</li>
+            <li>• Accept repayment terms</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 6: Disbursement -->
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card h-100 shadow-sm border-0">
+        <img src="https://img.icons8.com/fluency/96/money-bag.png" class="card-img-top mx-auto d-block mt-3" style="width:96px; height:96px; object-fit:contain;" alt="Disbursement">
+        <div class="card-body text-center">
+          <h5 class="card-title mb-1">6) Loan Disbursement</h5>
+          <p class="text-muted small mb-2">Receive your loan amount.</p>
+          <ul class="small mb-0 list-unstyled text-start">
+            <li>• Funds transferred to account</li>
+            <li>• EMI schedule begins</li>
+            <li>• Start repayment cycle</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
     </section>
 
     <!-- Testimonials Section -->
@@ -1756,7 +1930,7 @@
                         <div class="testimonial-author">
                             <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Arjun Singh"
                                 class="rounded-circle me-2" width="40">
-                            Arjun Singh, Delhi
+                             Smart Sella, Bangalore
                         </div>
                     </div>
                 </div>
@@ -1864,7 +2038,7 @@
                                 <i class="fas fa-map-marker-alt me-3 mt-1 text-primary"></i>
                                 <div>
                                     <h6>Address</h6>
-                                    <p>123 Financial Street, Banking District<br>Mumbai, Maharashtra 400001</p>
+                                    <p>123 Financial Street, Banking District<br>Chennai, Tamil Nadu 700001</p>
                                 </div>
                             </div>
                             <div class="d-flex align-items-start mb-3">
@@ -2093,25 +2267,26 @@
         </div>
     </footer>
 
-    <!-- AI Assistant -->
+       <!-- AI Assistant -->
     <div class="ai-assistant">
-        <i class="fas fa-robot"></i>
+      <i class="fas fa-robot"></i>
     </div>
 
     <div class="chat-container">
-        <div class="chat-header">
-            <span>Loan Assistant</span>
-            <i class="fas fa-times close-chat"></i>
+      <div class="chat-header">
+        <span>Loan Assistant</span>
+        <i class="fas fa-times close-chat"></i>
+      </div>
+      <div class="chat-messages">
+        <div class="message bot-message">
+          Hello! I'm here to help with your pre-loan questions. How can I assist
+          you today?
         </div>
-        <div class="chat-messages">
-            <div class="message bot-message">
-                Hello! I'm here to help with your loan-related questions. How can I assist you today?
-            </div>
-        </div>
-        <div class="chat-input">
-            <input type="text" placeholder="Type your message...">
-            <button><i class="fas fa-paper-plane"></i></button>
-        </div>
+      </div>
+      <div class="chat-input">
+        <input type="text" placeholder="Type your message..." />
+        <button><i class="fas fa-paper-plane"></i></button>
+      </div>
     </div>
 
     <!-- Login Modal -->
@@ -2360,34 +2535,34 @@
         });
 
         // AI Assistant Chat
-        const aiAssistant = document.querySelector('.ai-assistant');
-        const chatContainer = document.querySelector('.chat-container');
-        const closeChat = document.querySelector('.close-chat');
-        const chatInput = document.querySelector('.chat-input input');
-        const chatMessages = document.querySelector('.chat-messages');
-        const sendButton = document.querySelector('.chat-input button');
+      const aiAssistant = document.querySelector(".ai-assistant");
+      const chatContainer = document.querySelector(".chat-container");
+      const closeChat = document.querySelector(".close-chat");
+      const chatInput = document.querySelector(".chat-input input");
+      const chatMessages = document.querySelector(".chat-messages");
+      const sendButton = document.querySelector(".chat-input button");
 
-        aiAssistant.addEventListener('click', function () {
-            chatContainer.style.display = 'flex';
-        });
+      aiAssistant.addEventListener("click", function () {
+        chatContainer.style.display = "flex";
+      });
 
-        closeChat.addEventListener('click', function () {
-            chatContainer.style.display = 'none';
-        });
+      closeChat.addEventListener("click", function () {
+        chatContainer.style.display = "none";
+      });
 
-        function addMessage(text, isUser) {
-            const messageDiv = document.createElement('div');
-            messageDiv.classList.add('message');
-            messageDiv.classList.add(isUser ? 'user-message' : 'bot-message');
-            messageDiv.textContent = text;
-            chatMessages.appendChild(messageDiv);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
+      function addMessage(text, isUser) {
+        const messageDiv = document.createElement("div");
+        messageDiv.classList.add("message");
+        messageDiv.classList.add(isUser ? "user-message" : "bot-message");
+        messageDiv.textContent = text;
+        chatMessages.appendChild(messageDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }
 
-        sendButton.addEventListener('click', function () {
-            if (chatInput.value.trim() !== '') {
-                addMessage(chatInput.value, true);
-                // Simulate bot response
+      sendButton.addEventListener("click", function () {
+        if (chatInput.value.trim() !== "") {
+          addMessage(chatInput.value, true);
+                          // Simulate bot response
                 setTimeout(function () {
                     addMessage("Thank you for your message. Our team will get back to you shortly with more specific information regarding your query.", false);
                 }, 1000);
