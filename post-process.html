@@ -1515,10 +1515,10 @@
     </section>
 
     <!-- Premium Payment Options -->
-    <div class="container my-5">
+        <div class="container my-5">
       <div class="text-center mb-5">
         <h2 class="fw-bold">🚀 Unlock Premium Features</h2>
-        <p class="text-white">
+        <p>
           Upgrade now for faster performance, ad-free browsing, and exclusive
           tools. Choose your payment method 👇
         </p>
@@ -1534,15 +1534,12 @@
               color: white;
               cursor: pointer;
             "
-            onclick="unlockFeature('Google Pay')"
+            onclick="startPayment('Google Pay')"
           >
             <div class="card-body text-center p-4">
               <img src="gpay.jpeg" width="50" height="50" class="mb-3" />
               <h4>Google Pay</h4>
-              <p class="small">
-                Pay securely using your Google account. Instant & trusted
-                transactions.
-              </p>
+              <p class="small">Pay securely using your Google account.</p>
               <button class="btn btn-light mt-2">Pay with GPay</button>
             </div>
           </div>
@@ -1557,14 +1554,12 @@
               color: white;
               cursor: pointer;
             "
-            onclick="unlockFeature('PhonePe')"
+            onclick="startPayment('PhonePe')"
           >
             <div class="card-body text-center p-4">
               <img src="phonepay.png" width="50" height="50" class="mb-3" />
               <h4>PhonePe</h4>
-              <p class="small">
-                Quick UPI payments with cashback offers and wallet support.
-              </p>
+              <p class="small">Quick UPI payments with wallet support.</p>
               <button class="btn btn-light mt-2">Pay with PhonePe</button>
             </div>
           </div>
@@ -1579,7 +1574,7 @@
               color: white;
               cursor: pointer;
             "
-            onclick="unlockFeature('Paytm')"
+            onclick="startPayment('Paytm')"
           >
             <div class="card-body text-center p-4">
               <img src="paytm.png" width="50" height="50" class="mb-3" />
@@ -1601,22 +1596,52 @@
               color: white;
               cursor: pointer;
             "
-            onclick="unlockFeature('UPI')"
+            onclick="startPayment('UPI')"
           >
             <div class="card-body text-center p-4">
               <img src="upi.jpeg" width="50" height="50" class="mb-3" />
               <h4>UPI</h4>
-              <p class="small">
-                Direct bank-to-bank payments. Fast and reliable.
-              </p>
+              <p class="small">Direct bank-to-bank payments.</p>
               <button class="btn btn-light mt-2">Pay with UPI</button>
             </div>
           </div>
         </div>
       </div>
-
-      <div id="msg" class="mt-4 fw-bold text-success text-center"></div>
     </div>
+
+    <!-- Bootstrap Modal for Processing / Success -->
+    <div class="modal fade" id="paymentModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered text-center">
+        <div class="modal-content bg-dark text-white">
+          <div class="modal-body">
+            <div id="processing">
+              <div
+                class="spinner-border text-success"
+                role="status"
+                style="width: 3rem; height: 3rem"
+              ></div>
+              <h5 class="mt-3">⏳ Processing Payment...</h5>
+            </div>
+            <div id="success" class="d-none">
+              <div class="text-success display-1">✔</div>
+              <h4 class="mt-3">🎉 Congratulations!</h4>
+              <p>Your payment was successful.</p>
+              <button
+                class="btn btn-outline-light mt-2"
+                data-bs-dismiss="modal"
+              >
+                ⬅ Back to Home
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  <!-- Message -->
+  <div id="msg" class="mt-4 fw-bold text-success text-center"></div>
+</div>
 
     <!-- Footer -->
     <footer class="footer py-5" id="contact">
@@ -1634,23 +1659,11 @@
               protections in loan recovery processes across India.
             </p>
             <div class="mt-4">
-              <a href="#https://www.facebook.com/" class="text-light me-3"
-                ><i class="fab fa-facebook-f"></i
-              ></a>
-              <a href="#https://twitter.com/" class="text-light me-3"
-                ><i class="fab fa-twitter"></i
-              ></a>
-              <a
-                href="#https://www.linkedin.com/in/selladurai-web-developer/"
-                class="text-light me-3"
-                ><i class="fab fa-linkedin-in"></i
-              ></a>
-              <a href="#https://instagram.com/" class="text-light me-3"
-                ><i class="fab fa-instagram"></i
-              ></a>
-              <a href="#https://www.youtube.com/" class="text-light"
-                ><i class="fab fa-youtube"></i
-              ></a>
+<a href="https://www.facebook.com/" target="_blank" class="text-light me-3"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://twitter.com/" target="_blank" class="text-light me-3"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.linkedin.com/in/selladurai-web-developer/" target="_blank" class="text-light me-3"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://instagram.com/" target="_blank" class="text-light me-3"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.youtube.com/" target="_blank" class="text-light"><i class="fab fa-youtube"></i></a>
             </div>
           </div>
 
@@ -1953,11 +1966,23 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-      //this is payment purcase
-      function unlockFeature(method) {
-        const msg = document.getElementById("msg");
-        msg.innerHTML = `✅ Payment Successful via <b>${method}</b> 🎉<br> Premium Features Unlocked Instantly!`;
+
+      // Paymetn proceess
+      // payment
+      function startPayment(method) {
+        let modal = new bootstrap.Modal(
+          document.getElementById("paymentModal")
+        );
+        document.getElementById("processing").classList.remove("d-none");
+        document.getElementById("success").classList.add("d-none");
+        modal.show();
+
+        setTimeout(() => {
+          document.getElementById("processing").classList.add("d-none");
+          document.getElementById("success").classList.remove("d-none");
+        }, 3000);
       }
+
       // Initialize AOS
       AOS.init({
         duration: 1000,
